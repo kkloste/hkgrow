@@ -33,7 +33,7 @@ for trial_num=1:numtrials
 fprintf( 'trial= %i \t', trial_num);
 for eps_num=1:numeps
     for t_num=1:numt
-        tic; [dummy conds(eps_num,t_num,trial_num) cut vol] = hkgrow_sresid_mex(P,indices(trial_num),curexpand,t_vals(t_num), eps_vals(eps_num), debugflag);
+        tic; [dummy conds(eps_num,t_num,trial_num) cut vol] = hkgrow_mex(P,indices(trial_num),curexpand,t_vals(t_num), eps_vals(eps_num), debugflag);
         times(eps_num,t_num,trial_num) = toc;
     end
 end

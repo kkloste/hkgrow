@@ -74,13 +74,12 @@ for ei=1:numel(expands)
     curexpand = expands(ei)*numel(vert)+di;
     if curexpand > p.Results.maxexpand, continue; end
 
-if debugflag==1,    fprintf('hkgrow.m: Called hkgrow_sresid_mex on set of size=%i with expand=%i\n', numel(vert), curexpand); end
+if debugflag==1,    fprintf('hkgrow.m: Called hkgrow_mex on set of size=%i with expand=%i\n', numel(vert), curexpand); end
 
 %    [curset cond cut vol] = hkgrow_mex(A,vert,curexpand,p.Results.alpha, tol);
-%    [curset cond cut vol] = hkgrow_mex(A,vert,curexpand,alphat, tol, debugflag);
-    [curset cond cut vol] = hkgrow_sresid_mex(A,vert,curexpand,alphat, tol, debugflag);
+    [curset cond cut vol] = hkgrow_mex(A,vert,curexpand,alphat, tol, debugflag);
 
-if debugflag==1,    fprintf('hkgrow.m: hkgrow_sresid_mex done on set of size=%i with expand=%i\n', numel(vert), curexpand); end
+if debugflag==1,    fprintf('hkgrow.m: hkgrow_mex done on set of size=%i with expand=%i\n', numel(vert), curexpand); end
 
     if cond < bestcond
         bestcond = cond;
