@@ -1,0 +1,7 @@
+*.pyc
+*~
+*.asv
+*.mex*
+*.eps
+data/*.mat
+igraph_draw-graph*

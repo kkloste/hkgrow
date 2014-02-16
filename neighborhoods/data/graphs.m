@@ -1,0 +1,20 @@
+graphlist = { 
+  'internal','as-22july06','tech';   
+  'external','snap-oregon/oregon2_010526','tech';
+  'external','dgleich/arxiv-ubc','ca';
+  'external','dsi/dblp-cc','ca';
+  'internal','ca-AstroPh-cc','ca';
+  'internal','cond-mat-2005-fix-cc','ca';
+  'internal','email-Enron-cc','ca';
+  'external','dsi/hollywood-2009-cc','ca';
+  'external','snap/soc-LiveJournal1','soc';
+  'external','porter/Penn94','soc';
+  'external','traces/anony-interactions-oneyearA-cc','soc';
+  'external','traces/networkA-anonymized','soc';
+  'external','misc/itdk0304-cc','tech';
+  'external','snap-p2p/p2p-Gnutella25','tech';
+  'external','snap/web-Google','web';
+  'internal','rand-hyper-4000','model';
+  'internal','rand-ff-25000-0.4','model';
+  'internal','rand-ff-25000-0.49','model';
+};
