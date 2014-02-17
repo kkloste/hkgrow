@@ -17,7 +17,8 @@
 #include <limits>
 #include <algorithm>
 #include <math.h>
-
+#include <random>
+#include <ctime>
 #ifdef __APPLE__
 #include <tr1/unordered_set>
 #include <tr1/unordered_map>
@@ -31,11 +32,54 @@
 
 #include <mex.h>
 
-#define DEBUGPRINT(x) do { if (debugflag) { \
-                            mexPrintf x; mexEvalString("drawnow"); } \
-                      } while (0)
-
 int debugflag = 0;
+
+
+/** A replacement for std::queue<int> using a circular buffer array */
+class array_queue {
+public:
+    std::vector<int> array;
+    size_t max_size;
+    size_t head, tail;
+    size_t cursize;
+    array_queue(size_t _max_size)
+    : max_size(_max_size), array(_max_size), head(0), tail(0), cursize(0)
+    {}
+    
+    void empty() {
+        head = 0;
+        tail = 0;
+        cursize = 0;
+    }
+    
+    size_t size() {
+        return cursize;
+    }
+    
+    void push(int i) {
+        assert(size() < max_size);
+        array[tail] = i;
+        tail ++;
+        if (tail == max_size) {
+            tail = 0;
+        }
+        cursize ++;
+    }
+    
+    int front() {
+        assert(size() > 0);
+        return array[head];
+    }
+    
+    void pop() {
+        assert(size() > 0);
+        head ++;
+        if (head == max_size) {
+            head = 0;
+        }
+        cursize --;
+    }
+};
 
 struct sparsevec {
     typedef tr1ns::unordered_map<mwIndex,double> map_type;
@@ -60,7 +104,6 @@ struct sparsevec {
         for (map_type::iterator it=map.begin(),itend=map.end();it!=itend;++it) {
             s += it->second;
         }
-        return s;
     }
     
     /** Compute the max of the element values
@@ -88,20 +131,6 @@ mwIndex sr_degree(sparserow *s, mwIndex u) {
     return (s->ai[u+1] - s->ai[u]);
 }
 
-
-int taylordegree(const double t, const double eps) {
-    double eps_exp_t = eps*exp(t);
-    double error = exp(t)-1;
-    double last = 1.;
-    double k = 0.;
-    while(error > eps_exp_t){
-        k = k + 1.;
-        last = (last*t)/k;
-        error = error - last;
-    }
-    return std::max((int)k, (int)3);
-}
-
 /*****
  *
  *          above:  DATA STRUCTURES
@@ -112,123 +141,49 @@ int taylordegree(const double t, const double eps) {
  *
  ****/
 
-/**
- *
- *  gsqexpmseed inputs:
- *      G   -   adjacency matrix of an undirected graph
- *      set -   seed vector: the indices of a seed set of vertices
- *              around which cluster forms.
- *              Rather than normalize 'set' (by setting
- *                  set[i] = 1/set.size(); )
- *              we instead multiply eps by set.size().
- *  output: 
- *      y = exp(-t(I-P)) * set
- *              with infinity-norm accuracy of eps
- *              in the degree weighted norm
- *  parameters:
- *      t   - the value of t
- *      eps - the accuracy
- *      max_push_count - the total number of steps to run
- *      Q - the queue data structure
- */
-template <class Queue>
-int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
-                const double t, const double eps,
-                const mwIndex max_push_count, Queue& Q)
-{
-    DEBUGPRINT(("gsqexpmseed interior: t=%f eps=%f \n", t, eps)); 
-    mwIndex n = G->n;
-    mwIndex N = (mwIndex)taylordegree(t, eps);
-    DEBUGPRINT(("gsqexpmedseed: n=%i N=%i \n", n, N));
-    
-    // initialize the weights for the different residual partitions
-    // r(i,j) > d(i)*psi_1(t)*eps / (N*psi_j(t))
-    //  since each coefficient but d(i) stays the same,
-    //  we combine all coefficients except d(i)
-    //  into the vector "pushcoeff"
-    std::vector<double> psivec(N+1,0.);
-    psivec[N] = 1;
-    for (int k = 1; k < N ; k++){
-        psivec[N-k] = psivec[N-k+1]*t/(double)(N-k+1) + 1;
-    } // psivec[k] = psi_k(t)
-    double eps_exp_t = eps*psivec[1];
-    std::vector<double> pushcoeff(N+1,0.);
-    pushcoeff[1]=eps/(double)N;
-    for (int k = 2; k <= N ; k++){
-        pushcoeff[k] = pushcoeff[k-1]*(psivec[k-1]/psivec[k]);
-    }
-    pushcoeff[0]=0;
-    
-    mwIndex M = n*N;
-    mwIndex ri = 0;
-    mwIndex npush = 0;
-    double rij = 0;
-    // allocate data
-    sparsevec rvec;
+long unsigned int poisson(long unsigned int lambda){
+}
 
-    // i is the node index, j is the "step"
-    #define rentry(i,j) ((i)+(j)*n)
-    
-    // set the initial residual, add to the queue
-    for (sparsevec::map_type::iterator it=set.map.begin(),itend=set.map.end(); 
-         it!=itend;++it) {
-        ri = it->first;
-        rij = it->second;
-        rvec.map[rentry(ri,0)]+=rij;
-        Q.push(rentry(ri,0));
+mwIndex random_walk(sparserow * G, mwIndex K,  mwIndex cur_node){
+    mwIndex next_node, nzi, v;
+        std::default_random_engine generator;
+    for(mwIndex steps = 1; steps <= K; steps++){
+        std::uniform_int_distribution<int> distribution(0,sr_degree(G,cur_node) - 1);
+        next_node = distribution(generator);
+        nzi=G->ai[cur_node];
+        cur_node = G->aj[nzi + next_node];
     }
+
+    return cur_node;
+}
+
+int approx_hkpr(sparserow * G, sparsevec& y, const double alphat, std::vector<mwIndex> seedvec, const double tol, int debugflag){
+    long unsigned int lambda = (long unsigned int)ceil(alphat);
+    mwIndex n = G->n;
+    long unsigned int v,k;
+    double r = (16.0/pow(tol,2))*log(n);
+    long unsigned int K = (long unsigned int)ceil(log(1.0/tol)/log(log(1.0/tol)));
+    std::mt19937 mrand(std::time(0));  // seed however you want
+    std::poisson_distribution<long unsigned int> d(lambda);
+    size_t seedsize = seedvec.size(); // first pick seed node uniformly at random from seedvec.
+    std::default_random_engine generator;
+    std::uniform_int_distribution<int> distribution(0, seedsize - 1);
     
-    while (npush < max_push_count) {
-        // STEP 1: pop top element off of heap
-        ri = Q.front();
-        Q.pop();
-        // decode incides i,j
-        mwIndex i = ri%n;
-        mwIndex j = ri/n;
-        
-        double degofi = (double)sr_degree(G,i);
-        double kappai = degofi*pushcoeff[j];
-        rij = rvec.map[ri];
-//        
-        // update yi
-        y.map[i] += rij;
-        
-        // update r, no need to update heap here
-        rvec.map[ri] = 0; 
-        
-        double rijs = t*rij/(double)(j+1);
-        double ajv = 1./degofi;
-        double update = rijs*ajv;
-        
-        if (j == N-1) {
-            // this is the terminal case, and so we add the column of A
-            // directly to the solution vector y
-            for (mwIndex nzi=G->ai[i]; nzi < G->ai[i+1]; ++nzi) {
-                mwIndex v = G->aj[nzi];
-                y.map[v] += ajv*rijs;
-            }
-            npush += degofi;
-        }
-        else {
-            // this is the interior case, and so we add the column of A
-            // to the residual at the next time step.
-            for (mwIndex nzi=G->ai[i]; nzi < G->ai[i+1]; ++nzi) {
-                mwIndex v = G->aj[nzi];
-                mwIndex re = rentry(v,j+1);
-                double reold = rvec.get(re);
-                double renew = reold + update;
-                double dv = sr_degree(G,v);
-                rvec.map[re] = renew;
-                if (renew >= dv*pushcoeff[j+1] && reold < dv*pushcoeff[j+1]) {
-                    Q.push(re);
-                }
-            }
-            npush+=degofi;
-        }
-        // terminate when Q is empty, i.e. we've pushed all r(i,j) > eps*psi_1(t)*d(i)/(N*psi_j(t))
-        if ( Q.size() == 0) { return npush; }
-    }//end 'while'
-    return (npush);
+    mwIndex cur_node;
+
+if (debugflag>=1){ mexPrintf("r=%f K=%i \n", r,K); mexEvalString("drawnow"); }
+
+    for (mwIndex iter = 1; iter <= (int)ceil(r); iter++){
+        k = d(mrand); // determines length of walk
+if (debugflag>=2){ mexPrintf("k=%i ", k); mexEvalString("drawnow"); }
+        k = std::min(k,K);
+        cur_node = seedvec[distribution(generator)];
+        v = random_walk(G, k, cur_node);
+if (debugflag>=2){ mexPrintf("v=%i ", v); mexEvalString("drawnow"); }
+        y.map[v] += 1;
+    }
+
+    return r;
 }
 
 
@@ -237,6 +192,8 @@ struct greater2nd {
         return p1.second > p2.second;
     }
 };
+
+
 
 void cluster_from_sweep(sparserow* G, sparsevec& p,
                         std::vector<mwIndex>& cluster, double *outcond, double* outvolume,
@@ -276,6 +233,9 @@ void cluster_from_sweep(sparserow* G, sparsevec& p,
             }
         }
         curcutsize += change;
+        //if (curvolume + deg > target_vol) {
+        //break;
+        //}
         curvolume += deg;
         volume[i] = curvolume;
         cutsize[i] = curcutsize;
@@ -321,8 +281,8 @@ struct local_hkpr_stats {
 
 /** Cluster will contain a list of all the vertices in the cluster
  * @param set the set of starting vertices to use
- * @param t the value of t in the heatkernelPageRank computation
- * @param eps the solution tolerance eps
+ * @param alpha the value of alpha in the heatkernelPageRank computation
+ * @param target_vol the approximate number of edges in the cluster
  * @param p the heatkernelpagerank vector
  * @param r the residual vector
  * @param a vector which supports .push_back to add vertices for the cluster
@@ -330,9 +290,9 @@ struct local_hkpr_stats {
  */
 template <class Queue>
 int hypercluster_heatkernel_multiple(sparserow* G,
-        const std::vector<mwIndex>& set, double t, double eps,
-        sparsevec& p, sparsevec &r, Queue& q,
-        std::vector<mwIndex>& cluster, local_hkpr_stats *stats)
+                                     const std::vector<mwIndex>& set, double alpha, double target_vol,
+                                     sparsevec& p, sparsevec &r, Queue& q,
+                                     std::vector<mwIndex>& cluster, local_hkpr_stats *stats, double tol)
 {
     // reset data
     p.map.clear();
@@ -340,26 +300,48 @@ int hypercluster_heatkernel_multiple(sparserow* G,
     q.empty();
     
     assert(target_vol > 0);
+    //    assert(alpha < 1.0); assert(alpha > 0.0);
+    // this is commented out because alpha will be >=1 for exp(tG), in contrast with pagerank
     
+    
+    //r.map[start] = 1.0;
     size_t maxdeg = 0;
     for (size_t i=0; i<set.size(); ++i) { //populate r with indices of "set"
         assert(set[i] >= 0); assert(set[i] < G->n); // assert that "set" contains indices i: 1<=i<=n
         size_t setideg = sr_degree(G,set[i]);
-        r.map[set[i]] = 1./(double)(set.size()); // r is normalized to be stochastic
+        //        r.map[set[i]] = (1./(double)(set.size()))/(double)setideg;
+        r.map[set[i]] = 1.;
         maxdeg = std::max(maxdeg, setideg);
     }
     
-    DEBUGPRINT(("at last, gsqexpm: t=%f eps=%f \n", t, eps));
     
-    int nsteps = gsqexpmseed(G, r, p, t, eps, ceil(pow(G->n,1.5)), q);
-/**
- *      **********
- *
- *        ***       GSQEXPMSEED       is called         ***
- *
- *      **********
- */
+    /*
+     //double pr_eps = 1.0/std::max((double)sr_degree(G,start)*(double)target_vol, 100.0);
+     //double pr_eps = std::min(1.0/std::max(10.*target_vol, 100.0),
+     //1./(double)(set.size()*maxdeg + 1));
+     double pr_eps = 1.0/std::max(10.0*target_vol, 100.0);
+     if (stats) { stats->eps = pr_eps; }
+     
+     // calculate an integer number of max_push_count
+     double max_push_count = 1./(pr_eps*(1.-alpha));
+     max_push_count = std::min(max_push_count, 0.5*(double)std::numeric_limits<int>::max());
+     */
+    
+    //      instead of pr_eps, use tol = 1e-8
+    //      instead of '(int)max_pust_count', use ceil(pow(G->n,1.5))
+    
+    if (debugflag >= 1){ mexPrintf("approx_hkpr: alphat=%f tol=%f \n", alpha, tol); mexEvalString("drawnow");}
 
+    int nsteps = approx_hkpr(G, p, alpha, set, tol, debugflag);
+    
+    /**
+     *      **********
+     *
+     *        ***       GSQEXPMSEED       is called         ***
+     *
+     *      **********
+     */
+    
     if (nsteps == 0) {
         p = r; // just copy over the residual
     }
@@ -367,7 +349,7 @@ int hypercluster_heatkernel_multiple(sparserow* G,
     if (stats) { stats->steps = nsteps; }
     if (stats) { stats->support = support; }
     
- // scale the probablities by their degree
+    // scale the probablities by their degree
     for (sparsevec::map_type::iterator it=p.map.begin(),itend=p.map.end();
          it!=itend;++it) {
         it->second *= (1.0/(double)std::max(sr_degree(G,it->first),(mwIndex)1));
@@ -383,34 +365,34 @@ int hypercluster_heatkernel_multiple(sparserow* G,
     return (0);
 }
 
-/** Grow a set of seeds via the heat-kernel.
- *
- * @param G sparserow version of input matrix A
- * @param seeds a vector of input seeds seeds (index 0, N-1), and then
- *          updated to have the final solution nodes as well.
- * @param t the value of t in the heat-kernel
- * @param eps the solution tolerance epsilon
- * @param fcond the final conductance score of the set.
- * @param fcut the final cut score of the set
- * @param fvol the final volume score of the set
- */
-void hkgrow(sparserow* G, std::vector<mwIndex>& seeds, double t,
-             double eps, double* fcond, double* fcut,
-             double* fvol)
+
+
+
+/**
+ *          HKGROW
+ *  G = sparserow version of input matrix A
+ *  set = vector of seed nodes
+ **/
+void hkgrow(sparserow* G, std::vector<mwIndex>& seeds, double alpha,
+            double targetvol, double* fcond, double* fcut,
+            double* fvol, double tol)
 {
     sparsevec p, r;
     std::queue<mwIndex> q;
     local_hkpr_stats stats;
     std::vector<mwIndex> bestclus;
-    DEBUGPRINT(("hkgrow_mex: call to hypercluster_heatkernel() start\n"));
-    hypercluster_heatkernel_multiple(G, seeds, t, eps,
-                                   p, r, q, bestclus, &stats);
-    DEBUGPRINT(("hkgrow_mex: call to hypercluster_heatkernel() DONE\n"));
+    if (debugflag >= 1){ mexPrintf("hkpr_mex: call to hypercluster_heatkernel() start \n"); mexEvalString("drawnow");}
+    hypercluster_heatkernel_multiple(G, seeds, alpha, targetvol,
+                                     p, r, q, bestclus, &stats, tol);
+    if (debugflag >= 1){ mexPrintf("hkpr_mex: call to hypercluster_heatkernel() DONE \n"); mexEvalString("drawnow");}
     seeds = bestclus;
     *fcond = stats.conductance;
     *fcut = stats.cut;
     *fvol = stats.volume;
 }
+
+
+
 
 void copy_array_to_index_vector(const mxArray* v, std::vector<mwIndex>& vec)
 {
@@ -429,18 +411,13 @@ void copy_array_to_index_vector(const mxArray* v, std::vector<mwIndex>& vec)
 
 
 // USAGE
-// [bestset,cond,cut,vol] = hkgrow_sresid_mex(A,set,targetvol,t,eps,debugflag)
-// Note that targetvol is currently ignored
-// If there are k elements in seeds, then eps is adjusted by eps*k
+// [bestset,cond,cut,vol] = hkpr_mex(A,set,targetvol,alpha,tol,debugflag)
 void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
 {
-    if (nrhs != 6) { 
-        mexErrMsgIdAndTxt("hkgrow_mex:notEnoughArguments", 
-            "hkgrow_mex needs six arguments not %i", nrhs);
-    }
     debugflag = (int)mxGetScalar(prhs[5]);
-    DEBUGPRINT(("hkgrow_mex: preprocessing start: \n"));
-
+    if (debugflag >= 1){ mexPrintf("hkpr_mex: preprocessing start: \n");mexEvalString("drawnow");}
+    
+    
     mxAssert(nrhs > 2 && nrhs < 7, "2-6 inputs required.");
     
     const mxArray* mat = prhs[0];
@@ -453,7 +430,7 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     mxArray* cut = mxCreateDoubleMatrix(1,1,mxREAL);
     mxArray* vol = mxCreateDoubleMatrix(1,1,mxREAL);
     
-    DEBUGPRINT(("hkgrow_mex: declared some input/outputs: \n"));
+    if (debugflag >= 1){mexPrintf("hkpr_mex: declared some input/outputs: \n");    mexEvalString("drawnow");}
     
     if (nlhs > 1) { plhs[1] = cond; }
     if (nlhs > 2) { plhs[2] = cut; }
@@ -461,18 +438,25 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     
     mxAssert(nlhs <= 4, "Too many output arguments");
     
-    double eps = pow(10,-3);
-    double t = 15.;
+    double tol = pow(10,-5);
+    double alpha = 1.;
     
     
-    DEBUGPRINT(("hkgrow_mex: declared more input/outputs: \n"));
+    if (debugflag >= 1){mexPrintf("hkpr_mex: declared more input/outputs: \n");    mexEvalString("drawnow");}
     
     if (nrhs >= 4) {
-        t = mxGetScalar(prhs[3]);
-        eps = mxGetScalar(prhs[4]);
+        alpha = mxGetScalar(prhs[3]);
+        tol = mxGetScalar(prhs[4]);
     }
     
-    DEBUGPRINT(("hkgrow_mex: input/outputs 3 : \n"));
+    // use a strange sentinal
+    double targetvol = 1000.;
+    if (nrhs >= 3) {
+        targetvol = mxGetScalar(prhs[2]);
+    }
+    
+    
+    if (debugflag >= 1){mexPrintf("hkpr_mex: input/outputs 3 : \n");    mexEvalString("drawnow");}
     
     sparserow r;
     r.m = mxGetM(mat);
@@ -481,18 +465,17 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     r.aj = mxGetIr(mat);
     r.a = mxGetPr(mat);
     
-    DEBUGPRINT(("hkgrow_mex: input/outputs 4 : \n"));
+    if (debugflag >= 1){mexPrintf("hkpr_mex: input/outputs 4 : \n");    mexEvalString("drawnow");}
     std::vector< mwIndex > seeds;
     copy_array_to_index_vector( set, seeds );
-
-    DEBUGPRINT(("hkgrow_mex: preprocessing end: \n"));
-
-    hkgrow(&r, seeds, t, (eps*(double)mxGetNumberOfElements(set)), // eps is multiplied by set.size()
-            mxGetPr(cond), mxGetPr(cut), mxGetPr(vol) );  // to avoid having to scale seeds
     
-    DEBUGPRINT(("hkgrow_mex: call to hkgrow() done\n"));
+    if (debugflag >= 1){mexPrintf("hkpr_mex: preprocessing end: \n"); mexEvalString("drawnow");}
     
-    if (nlhs > 0) { 
+    hkgrow(&r, seeds, alpha, targetvol,
+           mxGetPr(cond), mxGetPr(cut), mxGetPr(vol), tol);
+    if (debugflag >= 1){mexPrintf("hkpr_mex: call to hkgrow() done \n"); mexEvalString("drawnow");}
+    
+    if (nlhs > 0) {
         mxArray* cassign = mxCreateDoubleMatrix(seeds.size(),1,mxREAL);
         plhs[0] = cassign;
         

@@ -117,10 +117,8 @@ int taylordegree(const double t, const double eps) {
  *  gsqexpmseed inputs:
  *      G   -   adjacency matrix of an undirected graph
  *      set -   seed vector: the indices of a seed set of vertices
- *              around which cluster forms.
- *              Rather than normalize 'set' (by setting
- *                  set[i] = 1/set.size(); )
- *              we instead multiply eps by set.size().
+ *              around which cluster forms. Set should be
+ *              normalized, e.g. set[i] = 1/set.size();
  *  output: 
  *      y = exp(-t(I-P)) * set
  *              with infinity-norm accuracy of eps
@@ -383,6 +381,9 @@ int hypercluster_heatkernel_multiple(sparserow* G,
     return (0);
 }
 
+
+
+
 /** Grow a set of seeds via the heat-kernel.
  *
  * @param G sparserow version of input matrix A
@@ -429,14 +430,12 @@ void copy_array_to_index_vector(const mxArray* v, std::vector<mwIndex>& vec)
 
 
 // USAGE
-// [bestset,cond,cut,vol] = hkgrow_sresid_mex(A,set,targetvol,t,eps,debugflag)
-// Note that targetvol is currently ignored
-// If there are k elements in seeds, then eps is adjusted by eps*k
+// [bestset,cond,cut,vol] = hkgrow_mex(A,set,targetvol,t,eps,debugflag)
 void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
 {
-    if (nrhs != 6) { 
+    if (nrhs <= 6) { 
         mexErrMsgIdAndTxt("hkgrow_mex:notEnoughArguments", 
-            "hkgrow_mex needs six arguments not %i", nrhs);
+            "hkgrow_mex needs six arguments");
     }
     debugflag = (int)mxGetScalar(prhs[5]);
     DEBUGPRINT(("hkgrow_mex: preprocessing start: \n"));
@@ -461,7 +460,7 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     
     mxAssert(nlhs <= 4, "Too many output arguments");
     
-    double eps = pow(10,-3);
+    double eps = pow(10,-4);
     double t = 15.;
     
     
@@ -471,6 +470,13 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
         t = mxGetScalar(prhs[3]);
         eps = mxGetScalar(prhs[4]);
     }
+    
+    // use a strange sentinal
+    double targetvol = 1000.;
+    if (nrhs >= 3) {
+        targetvol = mxGetScalar(prhs[2]);
+    }
+    
     
     DEBUGPRINT(("hkgrow_mex: input/outputs 3 : \n"));
     
@@ -486,9 +492,9 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     copy_array_to_index_vector( set, seeds );
 
     DEBUGPRINT(("hkgrow_mex: preprocessing end: \n"));
-
-    hkgrow(&r, seeds, t, (eps*(double)mxGetNumberOfElements(set)), // eps is multiplied by set.size()
-            mxGetPr(cond), mxGetPr(cut), mxGetPr(vol) );  // to avoid having to scale seeds
+    size_t setsize = mxGetNumberOfElements(set);
+    hkgrow(&r, seeds, t, targetvol, (eps*(double)setsize),
+            mxGetPr(cond), mxGetPr(cut), mxGetPr(vol), (eps*(double)setsize) );
     
     DEBUGPRINT(("hkgrow_mex: call to hkgrow() done\n"));
     

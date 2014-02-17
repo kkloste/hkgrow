@@ -3,9 +3,9 @@
 load /scratch2/dgleich/kyle/symmats/friendster;
 filename = 'friendster';
 
-numtrials = 10;
+numtrials = 2;
 tvals = 55;
-eps = 5*1e-3;
+eps = 1e-3;
 indices = zeros(numtrials,1);
 times = zeros(numtrials,1);
 conds = zeros(numtrials,1);
@@ -27,6 +27,5 @@ avetime = sum(times(:,1))./numtrials;
 fprintf('avecond=%f  avetime=%f \n', avecond, avetime);
 outputname = strcat(filename,'trials');
 save(['/scratch2/dgleich/kyle/results/' outputname '.mat'], 'tvals','eps','gsize', 'indices', 'times', 'conds', 'filename','-v7.3');
-% matlabmail hasn't been working, can't explain why
-% matlabmail('kyle.kloster@gmail.com', 'experiment [trials_friendster] done', 'matlab - [trials_friendster] done');
+matlabmail('kyle.kloster@gmail.com', 'experiment [trials_friendster] done', 'matlab - [trials_friendster] done');
 exit;
