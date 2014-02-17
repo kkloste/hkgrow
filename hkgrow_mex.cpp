@@ -429,7 +429,7 @@ void copy_array_to_index_vector(const mxArray* v, std::vector<mwIndex>& vec)
 
 
 // USAGE
-// [bestset,cond,cut,vol] = hkgrow_sresid_mex(A,set,targetvol,t,eps,debugflag)
+// [bestset,cond,cut,vol] = hkgrow_mex(A,set,targetvol,t,eps,debugflag)
 // Note that targetvol is currently ignored
 // If there are k elements in seeds, then eps is adjusted by eps*k
 void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
