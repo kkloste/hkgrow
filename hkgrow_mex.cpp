@@ -338,14 +338,14 @@ int hypercluster_heatkernel_multiple(sparserow* G,
     p.map.clear();
     r.map.clear();
     q.empty();
-    
-    assert(target_vol > 0);
-    
+    DEBUGPRINT(("beginning of hypercluster \n"));
+
     size_t maxdeg = 0;
     for (size_t i=0; i<set.size(); ++i) { //populate r with indices of "set"
         assert(set[i] >= 0); assert(set[i] < G->n); // assert that "set" contains indices i: 1<=i<=n
         size_t setideg = sr_degree(G,set[i]);
         r.map[set[i]] = 1./(double)(set.size()); // r is normalized to be stochastic
+//    DEBUGPRINT(("i = %i \t set[i] = %i \t setideg = %i \n", i, set[i], setideg));
         maxdeg = std::max(maxdeg, setideg);
     }
     
@@ -429,19 +429,16 @@ void copy_array_to_index_vector(const mxArray* v, std::vector<mwIndex>& vec)
 
 
 // USAGE
-// [bestset,cond,cut,vol] = hkgrow_mex(A,set,targetvol,t,eps,debugflag)
+// [bestset,cond,cut,vol] = hkgrow_mex(A,set,t,eps,debugflag)
 // Note that targetvol is currently ignored
-// If there are k elements in seeds, then eps is adjusted by eps*k
 void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
 {
-    if (nrhs != 6) { 
+    if (nrhs != 5) { 
         mexErrMsgIdAndTxt("hkgrow_mex:notEnoughArguments", 
             "hkgrow_mex needs six arguments not %i", nrhs);
     }
-    debugflag = (int)mxGetScalar(prhs[5]);
+    debugflag = (int)mxGetScalar(prhs[4]);
     DEBUGPRINT(("hkgrow_mex: preprocessing start: \n"));
-
-    mxAssert(nrhs > 2 && nrhs < 7, "2-6 inputs required.");
     
     const mxArray* mat = prhs[0];
     const mxArray* set = prhs[1];
@@ -453,8 +450,6 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     mxArray* cut = mxCreateDoubleMatrix(1,1,mxREAL);
     mxArray* vol = mxCreateDoubleMatrix(1,1,mxREAL);
     
-    DEBUGPRINT(("hkgrow_mex: declared some input/outputs: \n"));
-    
     if (nlhs > 1) { plhs[1] = cond; }
     if (nlhs > 2) { plhs[2] = cut; }
     if (nlhs > 3) { plhs[3] = vol; }
@@ -464,15 +459,10 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     double eps = pow(10,-3);
     double t = 15.;
     
-    
-    DEBUGPRINT(("hkgrow_mex: declared more input/outputs: \n"));
-    
     if (nrhs >= 4) {
-        t = mxGetScalar(prhs[3]);
-        eps = mxGetScalar(prhs[4]);
+        t = mxGetScalar(prhs[2]);
+        eps = mxGetScalar(prhs[3]);
     }
-    
-    DEBUGPRINT(("hkgrow_mex: input/outputs 3 : \n"));
     
     sparserow r;
     r.m = mxGetM(mat);
@@ -481,14 +471,13 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     r.aj = mxGetIr(mat);
     r.a = mxGetPr(mat);
     
-    DEBUGPRINT(("hkgrow_mex: input/outputs 4 : \n"));
     std::vector< mwIndex > seeds;
     copy_array_to_index_vector( set, seeds );
 
     DEBUGPRINT(("hkgrow_mex: preprocessing end: \n"));
 
-    hkgrow(&r, seeds, t, (eps*(double)mxGetNumberOfElements(set)), // eps is multiplied by set.size()
-            mxGetPr(cond), mxGetPr(cut), mxGetPr(vol) );  // to avoid having to scale seeds
+    hkgrow(&r, seeds, t, eps, 
+            mxGetPr(cond), mxGetPr(cut), mxGetPr(vol) );
     
     DEBUGPRINT(("hkgrow_mex: call to hkgrow() done\n"));
     

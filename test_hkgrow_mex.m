@@ -15,7 +15,7 @@ assert(alphat>0, 'alphat violates alphat>0');
 assert(numtrials>=1, 'numtrials must be positive integer');
 
 % setup inputs
-A = load_graph(filename); n = size(A,1);
+A = load_graph(filename,'/scratch2/dgleich/kyle/data'); n = size(A,1);
 setup_time = toc;
 
 if debugflag == 1, fprintf('test_hkgrow: setup time=%f \n', setuptime); end
@@ -32,7 +32,7 @@ for trial_num=1:numtrials
 
 if debugflag==1, fprintf('test_hkgrow:  start rand trial=%i \n', trial_num); end
 
-    tic; [dummy cond_hk(trial_num) cut_hk vol_hk] = hkgrow_mex(A,1,curexpand,alphat, tol, debugflag);
+    tic; [dummy cond_hk(trial_num) cut_hk vol_hk] = hkgrow_mex(A,indices(trial_num),curexpand,alphat, tol, debugflag);
     time_hk(trial_num) = toc;
 
 if debugflag == 1, fprintf('test_hkgrow:  end rand trial=%i \n', trial_num); end

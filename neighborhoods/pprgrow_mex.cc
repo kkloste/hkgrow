@@ -292,7 +292,7 @@ int hypercluster_pagerank_multiple(sparserow* G,
   double pr_eps = 1.0/std::max(10.0*target_vol, 100.0);
   if (stats) { stats->eps = pr_eps; }
   
-  //printf("find_cluster: start=%7i target_vol=%7i max_vol=%7i alpha=%5.3f pr_eps=%f\n", start, target_vol, max_vol, alpha, pr_eps);
+  //printf("find_cluster: target_vol=%7lli alpha=%5.3ld pr_eps=%ld\n", target_vol, alpha, pr_eps);
   
   // calculate an integer number of maxsteps
   double maxsteps = 1./(pr_eps*(1.-alpha));

@@ -36,14 +36,19 @@ function [bestset,bestcond,bestcut,bestvol] = pprgrow(A,vert,varargin)
 %   Using a value of 0.999 is reasonable if your goal is to look for larger
 %   clusters.
 
+warning('pprgrow:badDefaults',...
+    ['this file was edited for far comparisons in the hkgrow package ' ...
+    'please see the neighborhoods package for better defaults']);
+
 % David F. Gleich
 % Purdue University, 2011
 
 p = inputParser;
 p.addOptional('nruns',32,@isnumeric);
 p.addOptional('alpha',0.99,@isnumeric);
-p.addOptional('expands',[]);
+p.addOptional('expands',[100,1000,10000,100000]);
 p.addOptional('maxexpand',Inf,@isnumeric);
+p.addOptional('neighborhood',false,@islogical);
 p.parse(varargin{:});
 
 expandseq = [2 3 4 5 10 15];
@@ -55,6 +60,11 @@ while numel(expands) < p.Results.nruns
 end
 expands = expands(1:p.Results.nruns);
 
+if p.Results.neighborhood
+    neighs = find(A(:,vert));
+    vert = union(vert,neighs);
+end
+
 if ~isempty(p.Results.expands)
     expands = p.Results.expands;
 end
@@ -65,7 +75,7 @@ di=full(max(sum(A(:,vert))));
 bestcond = Inf;
 bestset = [];
 for ei=1:numel(expands)
-    curexpand = expands(ei)*numel(vert)+di;
+    curexpand = expands(ei);
     if curexpand > p.Results.maxexpand, continue; end
     %fprintf('Called pprgrow on set of size=%i with expand=%i\n', numel(vert), curexpand);
     [curset cond cut vol] = pprgrow_mex(A,vert,curexpand,p.Results.alpha);
