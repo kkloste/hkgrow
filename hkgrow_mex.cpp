@@ -264,11 +264,11 @@ void cluster_from_sweep(sparserow* G, sparsevec& p,
   i=0;
   for (vertex_prob_type::iterator it=prpairs.begin(),itend=prpairs.end();
     it!=itend; ++it, ++i) {
-    int v = it->first;
+    mwIndex v = it->first;
     mwIndex deg = G->ai[v+1]-G->ai[v];
     mwIndex change = deg;
-    for (int nzi=G->ai[v]; nzi<G->ai[v+1]; ++nzi) {
-      int nbr = G->aj[nzi];
+    for (mwIndex nzi=G->ai[v]; nzi<G->ai[v+1]; ++nzi) {
+      mwIndex nbr = G->aj[nzi];
       if (rank.count(nbr) > 0) {
         if (rank[nbr] < rank[v]) {
           change -= 2;
