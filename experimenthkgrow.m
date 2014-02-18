@@ -6,6 +6,10 @@ numtrials = 200;
 indices = zeros(numel(filename),numtrials,4);
 times = zeros(numel(filename),numtrials,4);
 conds = zeros(numel(filename),numtrials,4);
+setsizes = zeros(numel(filename),numtrials,4);
+volumes = zeros(numel(filename),numtrials,4);
+cuts = zeros(numel(filename),numtrials,4);
+
 gsize = zeros(numel(filename),2);
 
 for fileid=1:numel(filename)
