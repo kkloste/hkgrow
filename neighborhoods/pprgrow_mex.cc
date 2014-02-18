@@ -179,8 +179,8 @@ void cluster_from_sweep(sparserow* G, sparsevec& p,
 
   // compute cutsize, volume, and conductance
   std::vector<double> conductance(prpairs.size());
-  std::vector<int> volume(prpairs.size());
-  std::vector<int> cutsize(prpairs.size());
+  std::vector<mwIndex> volume(prpairs.size());
+  std::vector<mwIndex> cutsize(prpairs.size());
 
   size_t i=0;
   tr1ns::unordered_map<int,size_t> rank;
@@ -189,15 +189,15 @@ void cluster_from_sweep(sparserow* G, sparsevec& p,
     rank[it->first] = i;
   }
   //printf("support=%i\n",prpairs.size());
-  int total_degree = G->ai[G->m];
-  int curcutsize = 0;
-  int curvolume = 0;
+  mwIndex total_degree = G->ai[G->m];
+  mwIndex curcutsize = 0;
+  mwIndex curvolume = 0;
   i=0;
   for (vertex_prob_type::iterator it=prpairs.begin(),itend=prpairs.end();
     it!=itend; ++it, ++i) {
     int v = it->first;
-    int deg = G->ai[v+1]-G->ai[v];
-    int change = deg;
+    mwIndex deg = G->ai[v+1]-G->ai[v];
+    mwIndex change = deg;
     for (int nzi=G->ai[v]; nzi<G->ai[v+1]; ++nzi) {
       int nbr = G->aj[nzi];
       if (rank.count(nbr) > 0) {

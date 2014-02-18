@@ -238,76 +238,82 @@ struct greater2nd {
     }
 };
 
-void cluster_from_sweep(sparserow* G, sparsevec& p,
-                        std::vector<mwIndex>& cluster, double *outcond, double* outvolume,
-                        double *outcut)
+void cluster_from_sweep(sparserow* G, sparsevec& p, 
+      std::vector<mwIndex>& cluster, double *outcond, double* outvolume,
+      double *outcut)
 {
-    // now we have to do the sweep over p in sorted order by value
-    typedef std::vector< std::pair<int, double> > vertex_prob_type;
-    vertex_prob_type prpairs(p.map.begin(), p.map.end());
-    std::sort(prpairs.begin(), prpairs.end(), greater2nd());
-    
-    // compute cutsize, volume, and conductance
-    std::vector<double> conductance(prpairs.size());
-    std::vector<int> volume(prpairs.size());
-    std::vector<int> cutsize(prpairs.size());
-    
-    size_t i=0;
-    tr1ns::unordered_map<int,size_t> rank;
-    for (vertex_prob_type::iterator it=prpairs.begin(),itend=prpairs.end();
-         it!=itend; ++it, ++i) {
-        rank[it->first] = i;
-    }
-    int total_degree = G->ai[G->m];
-    int curcutsize = 0;
-    int curvolume = 0;
-    i=0;
-    for (vertex_prob_type::iterator it=prpairs.begin(),itend=prpairs.end();
-         it!=itend; ++it, ++i) {
-        int v = it->first;
-        int deg = G->ai[v+1]-G->ai[v];
-        int change = deg;
-        for (int nzi=G->ai[v]; nzi<G->ai[v+1]; ++nzi) {
-            int nbr = G->aj[nzi];
-            if (rank.count(nbr) > 0) {
-                if (rank[nbr] < rank[v]) {
-                    change -= 2;
-                }
-            }
+  // now we have to do the sweep over p in sorted order by value
+  typedef std::vector< std::pair<int, double> > vertex_prob_type;
+  vertex_prob_type prpairs(p.map.begin(), p.map.end());
+  std::sort(prpairs.begin(), prpairs.end(), greater2nd());
+
+  // compute cutsize, volume, and conductance
+  std::vector<double> conductance(prpairs.size());
+  std::vector<mwIndex> volume(prpairs.size());
+  std::vector<mwIndex> cutsize(prpairs.size());
+
+  size_t i=0;
+  tr1ns::unordered_map<int,size_t> rank;
+  for (vertex_prob_type::iterator it=prpairs.begin(),itend=prpairs.end();
+    it!=itend; ++it, ++i) {
+    rank[it->first] = i;
+  }
+  //printf("support=%i\n",prpairs.size());
+  mwIndex total_degree = G->ai[G->m];
+  mwIndex curcutsize = 0;
+  mwIndex curvolume = 0;
+  i=0;
+  for (vertex_prob_type::iterator it=prpairs.begin(),itend=prpairs.end();
+    it!=itend; ++it, ++i) {
+    int v = it->first;
+    mwIndex deg = G->ai[v+1]-G->ai[v];
+    mwIndex change = deg;
+    for (int nzi=G->ai[v]; nzi<G->ai[v+1]; ++nzi) {
+      int nbr = G->aj[nzi];
+      if (rank.count(nbr) > 0) {
+        if (rank[nbr] < rank[v]) {
+          change -= 2;
         }
-        curcutsize += change;
-        curvolume += deg;
-        volume[i] = curvolume;
-        cutsize[i] = curcutsize;
-        if (curvolume == 0 || total_degree-curvolume==0) {
-            conductance[i] = 1;
-        } else {
-            conductance[i] = (double)curcutsize/
-            (double)std::min(curvolume,total_degree-curvolume);
-        }
+      }
     }
-    // we stopped the iteration when it finished, or when it hit target_vol
-    size_t lastind = i;
-    double mincond = std::numeric_limits<double>::max();
-    size_t mincondind = 0; // set to zero so that we only add one vertex
-    for (i=0; i<lastind; i++) {
-        if (conductance[i] < mincond) {
-            mincond = conductance[i];
-            mincondind = i;
-        }
+    curcutsize += change;
+    //if (curvolume + deg > target_vol) {
+      //break;
+    //}
+    curvolume += deg;
+    volume[i] = curvolume;
+    cutsize[i] = curcutsize;
+    if (curvolume == 0 || total_degree-curvolume==0) {
+      conductance[i] = 1;
+    } else {
+      conductance[i] = (double)curcutsize/
+                        (double)std::min(curvolume,total_degree-curvolume);
     }
-    if (lastind == 0) {
-        // add a case
-        mincond = 0.0;
+    //printf("%5i : cut=%6i vol=%6i prval=%8g cond=%f\n", i, curcutsize, curvolume, it->second, conductance[i]);
+  }
+  // we stopped the iteration when it finished, or when it hit target_vol
+  size_t lastind = i;
+  double mincond = std::numeric_limits<double>::max();
+  size_t mincondind = 0; // set to zero so that we only add one vertex 
+  for (i=0; i<lastind; i++) {
+    if (conductance[i] < mincond) {
+      mincond = conductance[i];
+      mincondind = i;
     }
-    i = 0;
-    for (vertex_prob_type::iterator it=prpairs.begin(),itend=prpairs.end();
-         it!=itend && i<mincondind+1; ++it, ++i) {
-        cluster.push_back(it->first);
-    }
-    if (outcond) { *outcond = mincond; }
-    if (outvolume) { *outvolume = volume[mincondind]; }
-    if (outcut) { *outcut = cutsize[mincondind]; }
+  }
+  //printf("mincond=%f mincondind=%i\n", mincond, mincondind);
+  if (lastind == 0) {
+    // add a case 
+    mincond = 0.0;
+  }
+  i = 0;
+  for (vertex_prob_type::iterator it=prpairs.begin(),itend=prpairs.end();
+    it!=itend && i<mincondind+1; ++it, ++i) {
+    cluster.push_back(it->first);
+  }
+  if (outcond) { *outcond = mincond; }
+  if (outvolume) { *outvolume = volume[mincondind]; }
+  if (outcut) { *outcut = cutsize[mincondind]; }
 }
 
 struct local_hkpr_stats {
