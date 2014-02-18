@@ -159,7 +159,6 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
     }
     pushcoeff[0]=0;
     
-    mwIndex M = n*N;
     mwIndex ri = 0;
     mwIndex npush = 0;
     double rij = 0;
