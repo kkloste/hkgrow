@@ -51,8 +51,8 @@ fprintf('\t heavyhood done\n');
     clear A;
 end
 
-outputname = strcat('smalldata');
-save(['/scratch2/dgleich/kyle/results/' outputname '.mat'], 'gsize', 'setsizes', 'vols', 'cuts', 'indices', 'times', 'conds', 'filename','-v7.3');
+outputname = strcat('smalldata'); dataname = 'hk';
+save(['/scratch2/dgleich/kyle/results/' outputname '.mat'], 'dataname', 'gsize', 'setsizes', 'vols', 'cuts', 'indices', 'times', 'conds', 'filename','-v7.3');
 clear
 exit;
 

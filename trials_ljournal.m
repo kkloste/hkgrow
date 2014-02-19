@@ -8,12 +8,10 @@ numtrials = 1000;
 indices = zeros(numtrials,4);
 times = zeros(numtrials,4);
 conds = zeros(numtrials,4);
-gsize = zeros(1,2);
-
 cuts = zeros(numtrials,4);
 vols = zeros(numtrials,4);
 setsizes = zeros(numtrials,4);
-
+gsize = zeros(1,2);
 
 gsize(1) = size(A,1);
 gsize(2) = nnz(A);
@@ -42,8 +40,9 @@ etype = 4;
 avecond = sum(conds(:,1))./numtrials;
 avetime = sum(times(:,1))./numtrials;
 fprintf('avecond=%f  avetime=%f \n', avecond, avetime);
+dataname = 'hk';
 outputname = strcat(filename,'trials');
-save(['/scratch2/dgleich/kyle/results/' outputname '.mat'], 'gsize', 'setsizes', 'vols', 'cuts', 'indices', 'times', 'conds', 'filename','-v7.3');
+save(['/scratch2/dgleich/kyle/results/' outputname '.mat'], 'dataname', 'gsize', 'setsizes', 'vols', 'cuts', 'indices', 'times', 'conds', 'filename','-v7.3');
 % matlabmail hasn't been working, can't explain why
-% matlabmail('kyle.kloster@gmail.com', 'experiment [trials_friendster] done', 'matlab - [trials_friendster] done');
+% matlabmail('kyle.kloster@gmail.com', strcat('experiment ', dataname, filename,' done'), 'from matlab');
 exit;
