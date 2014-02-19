@@ -37,8 +37,8 @@ for ti=1:numel(ts)
     legtext{end+1} = sprintf('hk - t=%g',t);
 end
 text(10,1e-7,'t=1','VerticalAlignment','bottom','HorizontalAlignment','right');
-text(20,1e-7,'t=2','VerticalAlignment','bottom','HorizontalAlignment','right');
-text(38,1e-7,'t=5','VerticalAlignment','bottom','HorizontalAlignment','right');
+text(20,1e-7,'t=5','VerticalAlignment','bottom','HorizontalAlignment','right');
+text(38,1e-7,'t=15','VerticalAlignment','bottom','HorizontalAlignment','right');
 text(87,1e-7,'\alpha=0.85','VerticalAlignment','bottom');
 text(87,5e-3,'\alpha=0.99','VerticalAlignment','bottom');
 ylabel('Weight');

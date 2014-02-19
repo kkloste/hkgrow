@@ -1,8 +1,8 @@
 % nohup /p/matlab-7.14/bin/matlab -nodisplay -nodesktop -nojvm -nosplash -r pprtwitter > pprtwit.txt &
 
-load /scratch2/dgleich/kyle/symmats/twitter;
-load /scratch2/dgleich/kyle/results/twittertrials;
-filename = 'twitter';
+load /scratch2/dgleich/kyle/symmats/twitterp;
+load /scratch2/dgleich/kyle/results/twitterptrials;
+filename = 'twitterp';
 
 numtrials = size(indices,1);
 
@@ -43,13 +43,13 @@ end
 fprintf('\t pprrandhood done\n');
 
 % heavyhood
-etype = 4;
-for trial_num=1:numtrials
-tic; [dummy,conds(trial_num,etype),cuts(trial_num,etype),vols(trial_num,etype)] = pprgrow(A,indices(trial_num,etype),'neighborhood',true);
-times(trial_num,etype) = toc;
-setsizes(trial_num,etype) = min(length(dummy), n - length(dummy));
-end
-fprintf('\t pprheavyhood done\n');
+% etype = 4;
+% for trial_num=1:numtrials
+% tic; [dummy,conds(trial_num,etype),cuts(trial_num,etype),vols(trial_num,etype)] = pprgrow(A,indices(trial_num,etype),'neighborhood',true);
+% times(trial_num,etype) = toc;
+% setsizes(trial_num,etype) = min(length(dummy), n - length(dummy));
+% end
+% fprintf('\t pprheavyhood done\n');
 
 
 avecond = sum(conds(:,1))./numtrials;
