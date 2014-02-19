@@ -56,4 +56,3 @@ save(['/scratch2/dgleich/kyle/results/' outputname '.mat'], 'dataname', 'gsize',
 clear
 exit;
 
-
