@@ -1,9 +1,12 @@
 /**
+ * DON'T USE THIS CODE IT WAS FOR A ONE-OFF TEST
+ *
  * @file hkclus_mex.cc
  * Implement a personal heat kernel pagerank clustering scheme.
  *
  * mex hkclus_mex.cc CXXFLAGS="\$CXXFLAGS -std=c++0x" -largeArrayDims
  *
+ * mex -O -largeArrayDims hktest_mex.cpp
  *
  *
  *
@@ -134,7 +137,7 @@ int taylordegree(const double t, const double eps) {
 template <class Queue>
 int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
                 const double t, const double eps,
-                const mwIndex max_push_count, Queue& Q)
+                mwIndex max_push_count, Queue& Q)
 {
     DEBUGPRINT(("gsqexpmseed interior: t=%f eps=%f \n", t, eps)); 
     mwIndex n = G->n;
@@ -155,8 +158,11 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
     std::vector<double> pushcoeff(N+1,0.);
     pushcoeff[1]=eps/(double)N;
     for (int k = 2; k <= N ; k++){
+        mexPrintf("psivec[%i] = %lf\n", k, psivec[k]);
         pushcoeff[k] = pushcoeff[k-1]*(psivec[k-1]/psivec[k]);
+        mexPrintf("pushc[%i] = %lf\n", k, pushcoeff[k]);
     }
+    pushcoeff[0]=0;
     
     mwIndex ri = 0;
     mwIndex npush = 0;
@@ -176,6 +182,7 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
         Q.push(rentry(ri,0));
     }
     
+    max_push_count = 1000000;
     while (npush < max_push_count) {
         // STEP 1: pop top element off of heap
         ri = Q.front();
@@ -197,6 +204,8 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
         double rijs = t*rij/(double)(j+1);
         double ajv = 1./degofi;
         double update = rijs*ajv;
+        
+        mexPrintf("pushing on %i in %i with rij=%lf, udpate=%lf\n", i, j, rij, update);
         
         if (j == N-1) {
             // this is the terminal case, and so we add the column of A
@@ -254,6 +263,7 @@ void cluster_from_sweep(sparserow* G, sparsevec& p,
   tr1ns::unordered_map<int,size_t> rank;
   for (vertex_prob_type::iterator it=prpairs.begin(),itend=prpairs.end();
     it!=itend; ++it, ++i) {
+    mexPrintf("%i: %lf\n", it->first, it->second);
     rank[it->first] = i;
   }
   //printf("support=%i\n",prpairs.size());
@@ -355,7 +365,7 @@ int hypercluster_heatkernel_multiple(sparserow* G,
     
     DEBUGPRINT(("at last, gsqexpm: t=%f eps=%f \n", t, eps));
     
-    int nsteps = gsqexpmseed(G, r, p, t, eps, ceil(pow(G->n,1.5)), q);
+    int nsteps = (int)gsqexpmseed(G, r, p, t, eps, ceil(pow(G->n,1.5)), q);
 /**
  *      **********
  *

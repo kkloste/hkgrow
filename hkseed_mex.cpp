@@ -1,9 +1,11 @@
 /**
  * @file hkclus_mex.cc
- * Implement a personal heat kernel pagerank clustering scheme.
- *
- * mex hkclus_mex.cc CXXFLAGS="\$CXXFLAGS -std=c++0x" -largeArrayDims
- *
+ * Implement a seeded heat kernel approximation:
+ *      computes
+ *  e^(tP)*v
+ *      for v a normalized seed vector,
+ * i.e. a uniform distribution on a small set S of
+ * seed nodes.
  *
  *
  *
@@ -157,6 +159,7 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
     for (int k = 2; k <= N ; k++){
         pushcoeff[k] = pushcoeff[k-1]*(psivec[k-1]/psivec[k]);
     }
+    pushcoeff[0]=0;
     
     mwIndex ri = 0;
     mwIndex npush = 0;
@@ -400,9 +403,9 @@ int hypercluster_heatkernel_multiple(sparserow* G,
  */
 void hkgrow(sparserow* G, std::vector<mwIndex>& seeds, double t,
              double eps, double* fcond, double* fcut,
-             double* fvol)
+             double* fvol, sparsevec& p, double* npushes)
 {
-    sparsevec p, r;
+    sparsevec r;
     std::queue<mwIndex> q;
     local_hkpr_stats stats;
     std::vector<mwIndex> bestclus;
@@ -411,6 +414,7 @@ void hkgrow(sparserow* G, std::vector<mwIndex>& seeds, double t,
                                    p, r, q, bestclus, &stats);
     DEBUGPRINT(("hkgrow_mex: call to hypercluster_heatkernel() DONE\n"));
     seeds = bestclus;
+    *npushes = stats.steps;
     *fcond = stats.conductance;
     *fcut = stats.cut;
     *fvol = stats.volume;
@@ -453,10 +457,12 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     mxArray* cond = mxCreateDoubleMatrix(1,1,mxREAL);
     mxArray* cut = mxCreateDoubleMatrix(1,1,mxREAL);
     mxArray* vol = mxCreateDoubleMatrix(1,1,mxREAL);
+    mxArray* npushes = mxCreateDoubleMatrix(1,1,mxREAL);
     
     if (nlhs > 1) { plhs[1] = cond; }
     if (nlhs > 2) { plhs[2] = cut; }
     if (nlhs > 3) { plhs[3] = vol; }
+    if (nlhs > 5) { plhs[5] = npushes; }
     
     mxAssert(nlhs <= 4, "Too many output arguments");
     
@@ -477,11 +483,12 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     
     std::vector< mwIndex > seeds;
     copy_array_to_index_vector( set, seeds );
+    sparsevec hkpr;
 
     DEBUGPRINT(("hkgrow_mex: preprocessing end: \n"));
 
-    hkgrow(&r, seeds, t, eps, 
-            mxGetPr(cond), mxGetPr(cut), mxGetPr(vol) );
+    hkgrow(&r, seeds, t, eps,
+            mxGetPr(cond), mxGetPr(cut), mxGetPr(vol), hkpr, mxGetPr(npushes));
     
     DEBUGPRINT(("hkgrow_mex: call to hkgrow() done\n"));
     
@@ -494,6 +501,15 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
             ci[i] = (double)(seeds[i] + 1);
         }
     }
-    
+    if (nlhs > 4) {
+        mxArray* hkvec = mxCreateDoubleMatrix(r.n,1,mxREAL);
+        plhs[4] = hkvec;
+        double *ci = mxGetPr(hkvec);
+        for (sparsevec::map_type::iterator it=hkpr.map.begin(),itend=hkpr.map.end();
+             it!=itend;++it) {
+            ci[it->first] = it->second;
+        }
+    }
+
     
 }

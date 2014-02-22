@@ -157,6 +157,7 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
     for (int k = 2; k <= N ; k++){
         pushcoeff[k] = pushcoeff[k-1]*(psivec[k-1]/psivec[k]);
     }
+    pushcoeff[0]=0;
     
     mwIndex ri = 0;
     mwIndex npush = 0;
@@ -171,10 +172,17 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
     for (sparsevec::map_type::iterator it=set.map.begin(),itend=set.map.end(); 
          it!=itend;++it) {
         ri = it->first;
-        rij = it->second;
+        it->second = 1./(double)sr_degree(G,ri);
+    }
+    double scalefactor = set.sum();
+    for (sparsevec::map_type::iterator it=set.map.begin(),itend=set.map.end();
+         it!=itend;++it) {
+        ri = it->first;
+        rij = scalefactor*(double)it->second;
         rvec.map[rentry(ri,0)]+=rij;
         Q.push(rentry(ri,0));
     }
+    
     
     while (npush < max_push_count) {
         // STEP 1: pop top element off of heap
@@ -494,6 +502,4 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
             ci[i] = (double)(seeds[i] + 1);
         }
     }
-    
-    
 }

@@ -1,11 +1,10 @@
 /**
- * @file hkclus_mex.cc
+ * @file hk_corrected_.cc
  * Implement a personal heat kernel pagerank clustering scheme.
  *
- * mex hkclus_mex.cc CXXFLAGS="\$CXXFLAGS -std=c++0x" -largeArrayDims
- *
- *
- *
+ *  The idea is to correct everything from hk_grow, but
+ *  keep the original hkgrow intact (since that's what we used
+ *  on all our experiments).
  *
  */
 
