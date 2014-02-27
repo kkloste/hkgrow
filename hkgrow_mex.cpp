@@ -1,10 +1,17 @@
 /**
- * @file hkclus_mex.cc
- * Implement a personal heat kernel pagerank clustering scheme.
+ * @file hkgrow_mex.cpp
+ * Implement a seeded heat-kernel clustering scheme.
  *
- * mex hkclus_mex.cc CXXFLAGS="\$CXXFLAGS -std=c++0x" -largeArrayDims
+ *  Call with debugflag = 1 to display parameter values
+ * before/after each call to a major function
  *
  *
+ * TO COMPILE:
+ *
+ * if ismac
+ *      mex -O -largeArrayDims hkseed_mex.cpp
+ * else
+ * mex -O CXXFLAGS="\$CXXFLAGS -std=c++0x" -largeArrayDims hkgrow_mex.cpp
  *
  *
  */
@@ -83,13 +90,21 @@ struct sparserow {
     double *a;
 };
 
-
+/**
+ * Returns the degree of node u in sparse graph s
+ */
 mwIndex sr_degree(sparserow *s, mwIndex u) {
     return (s->ai[u+1] - s->ai[u]);
 }
 
 
-int taylordegree(const double t, const double eps) {
+/**
+ * Computes the degree N for the Taylor polynomial
+ * of exp(tP) to have error less than eps*exp(t)
+ *
+ * ( so exp(-t(I-P)) has error less than eps )
+ */
+unsigned int taylordegree(const double t, const double eps) {
     double eps_exp_t = eps*exp(t);
     double error = exp(t)-1;
     double last = 1.;
@@ -99,7 +114,7 @@ int taylordegree(const double t, const double eps) {
         last = (last*t)/k;
         error = error - last;
     }
-    return std::max((int)k, (int)3);
+    return std::max((int)k, (int)1);
 }
 
 /*****
@@ -117,13 +132,11 @@ int taylordegree(const double t, const double eps) {
  *  gsqexpmseed inputs:
  *      G   -   adjacency matrix of an undirected graph
  *      set -   seed vector: the indices of a seed set of vertices
- *              around which cluster forms.
- *              Rather than normalize 'set' (by setting
+ *              around which cluster forms; normalized so
  *                  set[i] = 1/set.size(); )
- *              we instead multiply eps by set.size().
- *  output: 
- *      y = exp(-t(I-P)) * set
- *              with infinity-norm accuracy of eps
+ *  output:
+ *      y = exp(tP) * set
+ *              with infinity-norm accuracy of eps * e^t
  *              in the degree weighted norm
  *  parameters:
  *      t   - the value of t
@@ -142,19 +155,20 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
     DEBUGPRINT(("gsqexpmedseed: n=%i N=%i \n", n, N));
     
     // initialize the weights for the different residual partitions
-    // r(i,j) > d(i)*psi_1(t)*eps / (N*psi_j(t))
+    // r(i,j) > d(i)*exp(t)*eps/(N*psi_j(t))
     //  since each coefficient but d(i) stays the same,
     //  we combine all coefficients except d(i)
     //  into the vector "pushcoeff"
     std::vector<double> psivec(N+1,0.);
     psivec[N] = 1;
-    for (int k = 1; k < N ; k++){
+    for (int k = 1; k <= N ; k++){
         psivec[N-k] = psivec[N-k+1]*t/(double)(N-k+1) + 1;
     } // psivec[k] = psi_k(t)
-    double eps_exp_t = eps*psivec[1];
     std::vector<double> pushcoeff(N+1,0.);
-    pushcoeff[1]=eps/(double)N;
-    for (int k = 2; k <= N ; k++){
+    pushcoeff[0] = ((exp(t)*eps)/(double)N)/psivec[0];
+    // This is a more numerically stable way to compute
+    //      pushcoeff[j] = exp(t)*eps/(N*psivec[j])
+    for (int k = 1; k <= N ; k++){
         pushcoeff[k] = pushcoeff[k-1]*(psivec[k-1]/psivec[k]);
     }
     
@@ -185,9 +199,8 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
         mwIndex j = ri/n;
         
         double degofi = (double)sr_degree(G,i);
-        double kappai = degofi*pushcoeff[j];
         rij = rvec.map[ri];
-//        
+
         // update yi
         y.map[i] += rij;
         
@@ -203,7 +216,7 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
             // directly to the solution vector y
             for (mwIndex nzi=G->ai[i]; nzi < G->ai[i+1]; ++nzi) {
                 mwIndex v = G->aj[nzi];
-                y.map[v] += ajv*rijs;
+                y.map[v] += update;
             }
             npush += degofi;
         }
@@ -223,7 +236,7 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
             }
             npush+=degofi;
         }
-        // terminate when Q is empty, i.e. we've pushed all r(i,j) > eps*psi_1(t)*d(i)/(N*psi_j(t))
+        // terminate when Q is empty, i.e. we've pushed all r(i,j) > eps*exp(t)*d(i)/(N*psi_j(t))
         if ( Q.size() == 0) { return npush; }
     }//end 'while'
     return (npush);
