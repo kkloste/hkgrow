@@ -169,7 +169,8 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
         psivec[N-k] = psivec[N-k+1]*t/(double)(N-k+1) + 1;
     } // psivec[k] = psi_k(t)
     std::vector<double> pushcoeff(N+1,0.);
-    pushcoeff[0] = ((exp(t)*eps)/(double)N)/psivec[0];
+//    pushcoeff[0] = ((exp(t)*eps)/(double)N)/psivec[0]; // This is the correct version
+        pushcoeff[0] = ((psivec[1]*eps)/(double)N)/psivec[0]; // this was used for all KDD data
     // This is a more numerically stable way to compute
     //      pushcoeff[j] = exp(t)*eps/(N*psivec[j])
     for (int k = 1; k <= N ; k++){
@@ -466,8 +467,14 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     const mxArray* mat = prhs[0];
     const mxArray* set = prhs[1];
     
-    mxAssert(mxIsSparse(mat), "Input matrix is not sparse");
-    mxAssert(mxGetM(mat) == mxGetN(mat), "Input matrix not square");
+    if ( mxIsSparse(mat) == false ){
+        mexErrMsgIdAndTxt("hkgrow_mex:wrongInputMatrix",
+                          "hkgrow_mex needs sparse input matrix");
+    }
+    if ( mxGetM(mat) != mxGetN(mat) ){
+        mexErrMsgIdAndTxt("hkgrow_mex:wrongInputMatrixDimensions",
+                          "hkgrow_mex needs square input matrix");
+    }
     
     mxArray* cond = mxCreateDoubleMatrix(1,1,mxREAL);
     mxArray* cut = mxCreateDoubleMatrix(1,1,mxREAL);
@@ -479,7 +486,10 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
     if (nlhs > 3) { plhs[3] = vol; }
     if (nlhs > 5) { plhs[5] = npushes; }
     
-    mxAssert(nlhs <= 6, "Too many output arguments");
+    if ( nlhs > 6 ){
+        mexErrMsgIdAndTxt("hkgrow_mex:wrongNumberOutputs",
+                          "hkgrow_mex needs 0 to 6 outputs, not %i", nlhs);
+    }
     
     double eps = pow(10,-3);
     double t = 15.;
