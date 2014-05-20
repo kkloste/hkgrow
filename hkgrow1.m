@@ -1,9 +1,10 @@
-function [bestset,bestcond,bestcut,bestvol] = hkgrow(A,vert,varargin)
+function [bestset,bestcond,bestcut,bestvol,hkvec,npushes] = hkgrow1(A,vert,varargin)
 % HKGROW Grow a cluster around a vertex using a heatkernel-pagerank algorithm
 %
-% [bestset,cond,cut,vol] = hkgrow(A,vert) computes exp(t*P)*v where
+% [bestset,cond,cut,vol,hkvec,npushes] = hkgrow1(A,vert)
+% computes the vector hkvec = exp(t*P)*v using npushes number of adds where
 % v is either a single column of the identity or a group of columns of the
-% identity and then extract a cluster. The algorithm uses various values of
+% identity, and then extract a cluster. The algorithm uses various values of
 % t and returns the best conductance cluster among any of them. 
 %
 % ... hkgrow(A,verts,'key',value,'key',value) specifies optional argument
@@ -37,9 +38,9 @@ bestset = [];
 if debugflag==1, fprintf('hkgrow1.m: Called hkgrow_mex on set of size=%i with t=%f  ;  eps=%f \n', ...
         numel(vert), t_vals(ei), eps_vals(ei)); end
 
-[curset cond cut vol] = hkgrow_mex(A, vert, p.Results.t, p.Results.eps, debugflag);
+[curset cond cut vol hkvec npushes] = hkgrow_mex(A, vert, p.Results.t, p.Results.eps, debugflag);
 
-if debugflag==1, fprintf('hkgrow.m: hkgrow_mex done on set of size=%i with t=%f  ;  eps=%f \n', ...
+if debugflag==1, fprintf('hkgrow1.m: hkgrow_mex done on set of size=%i with t=%f  ;  eps=%f \n', ...
         numel(vert), t_vals(ei), eps_vals(ei)); end
 
 % ripped code from hkgrow.m hence the strange extra work
