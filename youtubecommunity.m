@@ -46,7 +46,7 @@ fmeas(trial,functionID) = 2*recalls(trial,functionID)*precisions(trial,functionI
 if fmeas(trial,functionID) > bestfmeas(numcom,functionID),
 bestfmeas(numcom,functionID) = fmeas(trial,functionID);
 bestrecsize(numcom,functionID) = numel(bset);
-condofbestfmeas(numcom,functionID) = conds(trial,1);
+condofbestfmeas(numcom,functionID) = conds(trial,functionID);
 end
 [bset,conds(trial,2),cut,vol] = pprgrow(A,verts(trial));
 recalls(trial,2) = numel(intersect(verts,bset))/numel(verts);
@@ -56,11 +56,13 @@ fmeas(trial,functionID) = 2*recalls(trial,functionID)*precisions(trial,functionI
 if fmeas(trial,functionID) > bestfmeas(numcom,functionID),
 bestfmeas(numcom,functionID) = fmeas(trial,functionID);
 bestrecsize(numcom,functionID) = numel(bset);
-condofbestfmeas(numcom,functionID) = conds(trial,1);
+condofbestfmeas(numcom,functionID) = conds(trial,functionID);
 end
 end
 fprintf('best hk = %8.4f  setsize=%i cond=%6.4f \t best ppr = %8.4f  setsize =%i cond=%6.4f \n',bestfmeas(numcom,1),bestrecsize(numcom,1), condofbestfmeas(numcom,1), bestfmeas(numcom,2), bestrecsize(numcom,2), condofbestfmeas(numcom,2));
 end
-fprintf('mean for hk = %f \t mean for ppr = %f \n', sum(bestfmeas(:,1))/totalcommunities, sum(bestfmeas(:,2))/totalcommunities);
+fprintf('hk: mean fmeas=%6.4f \t mean setsize=%6.4f \t mean cond=%6.4 \t ppr: mean fmeas=%6.4f \t mean setsize=%6.4f \t mean cond=%6.4 \n', ... 
+		sum(bestfmeas(:,1))/totalcommunities, sum(bestrecsize(:,1))/totalcommunities, sum(condofbestfmeas(:,1))/totalcommunities, ...
+		sum(bestfmeas(:,2))/totalcommunities, sum(bestrecsize(:,2))/totalcommunities, sum(condofbestfmeas(:,2))/totalcommunities);
 
-save(['/scratch2/dgleich/kyle/kdd/' 'youtubecommunity' '.mat'],'fmeas','conds','recalls','precisions','condofbestfmeas','bestrecsize','-v7.3');
+save(['/scratch2/dgleich/kyle/kdd/' 'youtubecommunity' '.mat'],'fmeas','conds','recalls','precisions', 'bestrecsize', 'condofbestfmeas','bestrecsize','-v7.3');
