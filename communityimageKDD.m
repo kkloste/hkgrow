@@ -9,14 +9,15 @@ addpath('/scratch2/dgleich/kyle/kdd');
 
 n = size(A,1);
 C(n,end) = 0;
-Ctop(n,end) = 0;
 
-% find communities of size 50 < size < 500
+% find communities of size 80 < size < 400
 n = size(A,1);
 e = ones(n,1);
 commsize = e'*C;
-comminds = find(commsize>50);
-comminds = find(commsize(comminds)<500);
+comminds = find(commsize>80);
+dummy = find(commsize(comminds)<400);
+comminds = comminds(dummy);
+disp(length(comminds))
 
 % now comminds contains indices of C corresponding to communities
 % with size between 50 and 500.
@@ -30,11 +31,13 @@ totalcommunities = length(comminds);
 bestfmeas = zeros(totalcommunities,2);
 bestrecsize = zeros(totalcommunities,2);
 condofbestfmeas = zeros(totalcommunities,2);
+commsizes = zeros(totalcommunities,2);
 
 for numcom=1:totalcommunities
     comm = comminds(numcom);
     verts = find(C(:,comm));
-
+    commsizes(numcom) = numel(verts);
+ 
     deg = numel(verts);
     recalls = zeros(deg,2); % hk = 1, ppr = 2
     precisions = zeros(deg,2);
@@ -63,7 +66,7 @@ for numcom=1:totalcommunities
             condofbestfmeas(numcom,functionID) = conds(trial,functionID);
         end
     end
-    fprintf('best hk = %8.4f  setsize=%i cond=%6.4f \t best ppr = %8.4f  setsize =%i cond=%6.4f \n',bestfmeas(numcom,1),bestrecsize(numcom,1), condofbestfmeas(numcom,1), bestfmeas(numcom,2), bestrecsize(numcom,2), condofbestfmeas(numcom,2));
+    fprintf('CommSize = %i \t best hk = %8.4f  setsize=%i cond=%6.4f \t best ppr = %8.4f  setsize =%i cond=%6.4f \n',length(verts),bestfmeas(numcom,1),bestrecsize(numcom,1), condofbestfmeas(numcom,1), bestfmeas(numcom,2), bestrecsize(numcom,2), condofbestfmeas(numcom,2));
 end
 
 fprintf('hk: mean fmeas=%6.4f \t mean setsize=%6.4f \t mean cond=%6.4f \t ppr: mean fmeas=%6.4f \t mean setsize=%6.4f \t mean cond=%6.4f \n', ...
