@@ -83,4 +83,5 @@ for numcom=1:5%totalcommunities
 end
 
 
-save(['/scratch2/dgleich/kyle/hkgrow/' 'communityimage' '.mat'], 'bestrecsize', 'bestfmeas','bestrecsize','bestprecs','comminds','-v7.3');
+% save(['/scratch2/dgleich/kyle/hkgrow/' 'commKDD' '.mat'], 'bestrecsize', 'bestfmeas','bestrecsize','bestprecs','comminds','-v7.3');
+exit
