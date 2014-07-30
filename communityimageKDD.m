@@ -1,3 +1,6 @@
+% Execute with
+% nohup /p/matlab-7.14/bin/matlab -nodisplay -nodesktop -nojvm -nosplash -r communityimageKDD > commKDD.txt &
+%
 % Find ground-truth communities of DBLP roughly 100 in size
 % compute fmeas, set size of HK, PPR.
 
