@@ -36,7 +36,7 @@ bestrecsize = zeros(totalcommunities,2); % size of best-set returned by each alg
 commsizes = zeros(totalcommunities,2);   % size of actual community
 bestprecs = zeros(totalcommunities,2);
 
-for numcom=1:totalcommunities
+for numcom=1:5%totalcommunities
     comm = comminds(numcom);
     verts = find(C(:,comm));
     commsizes(numcom) = length(verts);
@@ -83,4 +83,4 @@ for numcom=1:totalcommunities
 end
 
 
-save(['/scratch2/dgleich/kyle/kdd/' 'communityimage' '.mat'], 'bestrecsize', 'bestfmeas','bestrecsize','bestprecs','comminds','-v7.3');
+save(['/scratch2/dgleich/kyle/hkgrow/' 'communityimage' '.mat'], 'bestrecsize', 'bestfmeas','bestrecsize','bestprecs','comminds','-v7.3');
