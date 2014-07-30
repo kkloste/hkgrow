@@ -4,8 +4,8 @@
 % dataset = 'dblp';
 % load(dataset,'/scratch/dlgeich/kyle/dblp/dblp');
 load /scratch/dgleich/kyle/dblp/dblp;
-addpath('/scratch2/dgleich/kyle/kdd/ppr');
-addpath('/scratch2/dgleich/kyle/kdd');
+addpath('/scratch2/dgleich/kyle/hkgrow/ppr');
+addpath('/scratch2/dgleich/kyle/hkgrow');
 
 n = size(A,1);
 C(n,end) = 0;
