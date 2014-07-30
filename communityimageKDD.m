@@ -28,7 +28,7 @@ disp(length(comminds))
 
 
 totalcommunities = length(comminds);
-bestfmeas = zeros(totalcommunities,2);   % ratio of fmeas at each starting node
+bestfmeas = zeros(totalcommunities,3);   % ratio of fmeas at each starting node
 bestrecsize = zeros(totalcommunities,2); % size of best-set returned by each alg
 commsizes = zeros(totalcommunities,2);   % size of actual community
 bestprecs = zeros(totalcommunities,2);
@@ -59,10 +59,11 @@ for numcom=1:totalcommunities
         functionID = 2; prsize = numel(bset); prprec = precisions(trial,2);
         fmeas(trial,functionID) = 2*recalls(trial,functionID)*precisions(trial,functionID)/(recalls(trial,functionID)+precisions(trial,functionID));
         
-        if fmeas(trial,1)/fmeas(trial,2) > bestfmeas(numcom,1),
+        if fmeas(trial,1) > bestfmeas(numcom,1),
             if recalls(trial,1) > 0.2,
-                bestfmeas(numcom,1) = fmeas(trial,1)/fmeas(trial,2);
-                bestfmeas(numcom,2) = verts(trial);
+                bestfmeas(numcom,1) = fmeas(trial,1);
+                bestfmeas(numcom,2) = fmeas(trial,2);
+                bestfmeas(numcom,3) = verts(trial);
                 bestprecs(numcom,1) = hkprec;
                 bestprecs(numcom,2) = prprec;
                 bestrecsize(numcom,1) = hksize;
@@ -72,9 +73,9 @@ for numcom=1:totalcommunities
 
     end
     if bestfmeas(numcom,1) > 0,
-        fprintf('CommSize = %i \t fmeas_ratio = %8.4f  \t HKsetsize=%i  PRsetsize=%i \t HKprec = %8.4f  PRprec = %8.4f \t seedID = %i \n', ...
-             commsizes(numcom),bestfmeas(numcom,1),bestrecsize(numcom,1),bestrecsize(numcom,2), ...
-             bestprecs(numcom,1), bestprecs(numcom,2), bestfmeas(numcom,2));
+        fprintf('CommSize = %i \t HKfmeas = %8.4f  PRfmeas = %8.4f \t HKsetsize=%i  PRsetsize=%i \t HKprec = %8.4f  PRprec = %8.4f \t seedID = %i \n', ...
+             commsizes(numcom),bestfmeas(numcom,1),bestfmeas(numcom,2),bestrecsize(numcom,1),bestrecsize(numcom,2), ...
+             bestprecs(numcom,1), bestprecs(numcom,2), bestfmeas(numcom,3));
     end
 end
 
