@@ -13,12 +13,12 @@ addpath('/scratch2/dgleich/kyle/hkgrow');
 n = size(A,1);
 C(n,end) = 0;
 
-% find communities of size 80 < size < 400
+% find communities of size 15 < size < 40
 n = size(A,1);
 e = ones(n,1);
 commsize = e'*C;
-comminds = find(commsize>50);
-dummy = find(commsize(comminds)<120);
+comminds = find(commsize>15);
+dummy = find(commsize(comminds)<40);
 comminds = comminds(dummy);
 disp(length(comminds))
 
@@ -36,7 +36,7 @@ bestrecsize = zeros(totalcommunities,2); % size of best-set returned by each alg
 commsizes = zeros(totalcommunities,2);   % size of actual community
 bestprecs = zeros(totalcommunities,2);
 
-for numcom=1:5%totalcommunities
+for numcom=1:totalcommunities
     comm = comminds(numcom);
     verts = find(C(:,comm));
     commsizes(numcom) = length(verts);
