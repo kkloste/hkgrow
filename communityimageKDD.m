@@ -14,8 +14,8 @@ C(n,end) = 0;
 n = size(A,1);
 e = ones(n,1);
 commsize = e'*C;
-comminds = find(commsize>80);
-dummy = find(commsize(comminds)<140);
+comminds = find(commsize>50);
+dummy = find(commsize(comminds)<120);
 comminds = comminds(dummy);
 disp(length(comminds))
 
