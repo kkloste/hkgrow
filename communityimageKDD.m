@@ -63,7 +63,7 @@ for numcom=1:totalcommunities
         fmeas(trial,functionID) = 2*recalls(trial,functionID)*precisions(trial,functionID)/(recalls(trial,functionID)+precisions(trial,functionID));
         
         if fmeas(trial,1) > bestfmeas(numcom,1),
-            if recalls(trial,1) > 0.2,
+            if recalls(trial,1) > 0.4,
                 bestfmeas(numcom,1) = fmeas(trial,1);
                 bestfmeas(numcom,2) = fmeas(trial,2);
                 bestfmeas(numcom,3) = verts(trial);
