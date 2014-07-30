@@ -75,10 +75,12 @@ for numcom=1:totalcommunities
         end
 
     end
-    if bestfmeas(numcom,1) > 0,
-        fprintf('CommSize=%i  CommID=%i \t HKfmeas=%8.4f  PRfmeas=%8.4f \t HKsetsize=%i  PRsetsize=%i \t HKprec=%8.4f  PRprec=%8.4f \t seedID=%i \n', ...
-             commsizes(numcom),comm,bestfmeas(numcom,1),bestfmeas(numcom,2),bestrecsize(numcom,1),bestrecsize(numcom,2), ...
-             bestprecs(numcom,1), bestprecs(numcom,2), bestfmeas(numcom,3));
+    if bestprecs(numcom,1) > 0.4,
+        if bestfmeas(numcom,1) > 0.4,
+            fprintf('CommSize=%i  CommID=%i \t HKfmeas=%8.4f  PRfmeas=%8.4f \t HKsetsize=%i  PRsetsize=%i \t HKprec=%8.4f  PRprec=%8.4f \t seedID=%i \n', ...
+                 commsizes(numcom),comm,bestfmeas(numcom,1),bestfmeas(numcom,2),bestrecsize(numcom,1),bestrecsize(numcom,2), ...
+                 bestprecs(numcom,1), bestprecs(numcom,2), bestfmeas(numcom,3));
+        end
     end
 end
 
