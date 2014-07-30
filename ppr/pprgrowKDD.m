@@ -48,7 +48,7 @@ function [bestset,bestcond,bestcut,bestvol] = pprgrow(A,vert,varargin)
 p = inputParser;
 p.addOptional('nruns',32,@isnumeric);
 p.addOptional('alpha',0.99,@isnumeric);
-p.addOptional('expands',[100,1000]);
+p.addOptional('expands',[100,1000,3000]);
 p.addOptional('maxexpand',Inf,@isnumeric);
 p.addOptional('neighborhood',false,@islogical);
 p.parse(varargin{:});

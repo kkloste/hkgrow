@@ -60,7 +60,7 @@ for numcom=1:totalcommunities
         fmeas(trial,functionID) = 2*recalls(trial,functionID)*precisions(trial,functionID)/(recalls(trial,functionID)+precisions(trial,functionID));
         
         if fmeas(trial,1)/fmeas(trial,2) > bestfmeas(numcom,1),
-            if recalls(trial,1) > 0.5,
+            if recalls(trial,1) > 0.2,
                 bestfmeas(numcom,1) = fmeas(trial,1)/fmeas(trial,2);
                 bestfmeas(numcom,2) = verts(trial);
                 bestprecs(numcom,1) = hkprec;
@@ -71,9 +71,11 @@ for numcom=1:totalcommunities
         end
 
     end
-    fprintf('CommSize = %i \t fmeas_ratio = %8.4f  \t HKsetsize=%i  PRsetsize=%i \t HKprec = %8.4f  PRprec = %8.4f \t seedID = %i \n', ...
-            commsizes(numcom),bestfmeas(numcom,1),bestrecsize(numcom,1),bestrecsize(numcom,2), ...
-            bestprecs(numcom,1), bestprecs(numcom,2), bestfmeas(numcom,2));
+    if bestfmeas(numcom,1) > 0,
+        fprintf('CommSize = %i \t fmeas_ratio = %8.4f  \t HKsetsize=%i  PRsetsize=%i \t HKprec = %8.4f  PRprec = %8.4f \t seedID = %i \n', ...
+             commsizes(numcom),bestfmeas(numcom,1),bestrecsize(numcom,1),bestrecsize(numcom,2), ...
+             bestprecs(numcom,1), bestprecs(numcom,2), bestfmeas(numcom,2));
+    end
 end
 
 
