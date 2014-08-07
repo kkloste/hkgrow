@@ -1,6 +1,6 @@
 % first load conductances
 
-load conductances;
+load ../results/conductances;
 
 % newindexing is the subset we want
 newindexing = [newindexing 13:15];

@@ -13,7 +13,7 @@
  * TO COMPILE:
  *
  * if ismac
- *      mex -O -largeArrayDims hkseed_mex.cpp
+ *      mex -O -largeArrayDims hkgrow_mex.cpp
  * else
  * mex -O CXXFLAGS="\$CXXFLAGS -std=c++0x" -largeArrayDims hkgrow_mex.cpp
  *
@@ -28,15 +28,12 @@
 #include <algorithm>
 #include <math.h>
 
-#ifdef __APPLE__
-#include <tr1/unordered_set>
-#include <tr1/unordered_map>
-#define tr1ns std::tr1
-#else
 #include <unordered_set>
 #include <unordered_map>
-#define __STDC_UTF_16__ 1
 #define tr1ns std
+
+#ifndef __APPLE__
+#define __STDC_UTF_16__ 1
 #endif
 
 #include <mex.h>
@@ -169,13 +166,10 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
         psivec[N-k] = psivec[N-k+1]*t/(double)(N-k+1) + 1;
     } // psivec[k] = psi_k(t)
     std::vector<double> pushcoeff(N+1,0.);
-//    pushcoeff[0] = ((exp(t)*eps)/(double)N)/psivec[0]; // This is the correct version
-        pushcoeff[0] = ((psivec[1]*eps)/(double)N)/psivec[0]; // this was used for all KDD data
-    // This is a more numerically stable way to compute
-    //      pushcoeff[j] = exp(t)*eps/(N*psivec[j])
+    pushcoeff[0] = ((exp(t)*eps)/(double)N)/psivec[0]; // This is the correct version
     for (int k = 1; k <= N ; k++){
         pushcoeff[k] = pushcoeff[k-1]*(psivec[k-1]/psivec[k]);
-    }
+    } // pushcoeff[j] = exp(t)*eps/(N*psivec[j])
     
     mwIndex ri = 0;
     mwIndex npush = 0;
@@ -184,7 +178,7 @@ int gsqexpmseed(sparserow * G, sparsevec& set, sparsevec& y,
     sparsevec rvec;
     
     // i is the node index, j is the "step"
-#define rentry(i,j) ((i)+(j)*n)
+    #define rentry(i,j) ((i)+(j)*n)
     
     // set the initial residual, add to the queue
     for (sparsevec::map_type::iterator it=set.map.begin(),itend=set.map.end();
@@ -459,7 +453,7 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
         mexErrMsgIdAndTxt("hkgrow_mex:wrongNumberArguments",
                           "hkgrow_mex needs two to five arguments, not %i", nrhs);
     }
-    if (nrhs = 5) {
+    if (nrhs == 5) {
         debugflag = (int)mxGetScalar(prhs[4]);
     }
     DEBUGPRINT(("hkgrow_mex: preprocessing start: \n"));

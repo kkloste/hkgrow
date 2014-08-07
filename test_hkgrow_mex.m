@@ -15,10 +15,10 @@ assert(alphat>0, 'alphat violates alphat>0');
 assert(numtrials>=1, 'numtrials must be positive integer');
 
 % setup inputs
-A = load_graph(filename,'/scratch2/dgleich/kyle/data'); n = size(A,1);
+A = load_graph(filename); n = size(A,1);
 setup_time = toc;
 
-if debugflag == 1, fprintf('test_hkgrow: setup time=%f \n', setuptime); end
+if debugflag == 1, fprintf('test_hkgrow_mex: setup time=%f \n', setuptime); end
 
 indices = randi(n,numtrials,1);
 time_hk = zeros(numtrials,1);
@@ -30,12 +30,12 @@ curexpand = 1000;
 % Test on random seeds
 for trial_num=1:numtrials
 
-if debugflag==1, fprintf('test_hkgrow:  start rand trial=%i \n', trial_num); end
+if debugflag==1, fprintf('test_hkgrow_mex:  start rand trial=%i \n', trial_num); end
 
-    tic; [dummy cond_hk(trial_num) cut_hk vol_hk] = hkgrow_mex(A,indices(trial_num),curexpand,alphat, tol, debugflag);
+    tic; [dummy cond_hk(trial_num) cut_hk vol_hk hkvec npushes] = hkgrow_mex(A,indices(trial_num),alphat, tol, debugflag);
     time_hk(trial_num) = toc;
 
-if debugflag == 1, fprintf('test_hkgrow:  end rand trial=%i \n', trial_num); end
+if debugflag == 1, fprintf('test_hkgrow_mex:  end rand trial=%i \n', trial_num); end
 
     bestset_hk(1:size(dummy,1),trial_num) = dummy;
 end

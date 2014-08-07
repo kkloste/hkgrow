@@ -1,6 +1,6 @@
 % first load runtimes
 
-load runtimes;
+load ../results/runtimes;
 % newindexing is the subset we want
 newindexing = [newindexing 13:15];
 

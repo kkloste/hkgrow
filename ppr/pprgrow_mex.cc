@@ -14,15 +14,11 @@
 #include <algorithm>
 
 
-#ifdef __APPLE__
-#include <tr1/unordered_set>
-#include <tr1/unordered_map>
-#define tr1ns std::tr1
-#else
 #include <unordered_set>
 #include <unordered_map>
-#define __STDC_UTF_16__ 1
 #define tr1ns std
+#ifndef __APPLE__
+#define __STDC_UTF_16__ 1
 #endif
 
 #include <mex.h>
@@ -96,6 +92,7 @@ struct sparsevec {
     for (map_type::iterator it=map.begin(),itend=map.end();it!=itend;++it) {
       s += it->second;
     }
+    return s;
   }
   
   /** Compute the max of the element values 

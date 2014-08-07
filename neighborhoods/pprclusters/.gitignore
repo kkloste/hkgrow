@@ -1,7 +1,0 @@
-bin
-*.o
-*.hcluster
-*.leavetime
-spectralncp-graph*
-multicluster-graph*
-hypercluster-graph*

@@ -40,7 +40,7 @@ for ei=1:numel(t_vals)
     if debugflag==1, fprintf('hkgrow.m: Called hkgrow_mex on set of size=%i with t=%f  ;  eps=%f \n', ...
             numel(vert), t_vals(ei), eps_vals(ei)); end
 
-    [curset cond cut vol] = hkgrow_mex(A, vert, t_vals(ei), eps_vals(ei), debugflag);
+    [curset cond cut vol hk npushes] = hkgrow_mex(A, vert, t_vals(ei), eps_vals(ei), debugflag);
 
     if debugflag==1, fprintf('hkgrow.m: hkgrow_mex done on set of size=%i with t=%f  ;  eps=%f \n', ...
             numel(vert), t_vals(ei), eps_vals(ei)); end

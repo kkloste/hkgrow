@@ -3,7 +3,7 @@
 
 
 
-load hktwitterpheavy;
+load ../results/hktwitterpheavy;
 
 k = 1;
 
@@ -14,7 +14,7 @@ plot(log10(setsizes(k:length(setsizes))),(conds(k:length(conds)) ),'r+','MarkerS
 hold all;
 
 
-load pprtwitterpheavy;
+load ../results/pprtwitterpheavy;
 
 plot(log10(setsizes(k:length(setsizes))),(conds(k:length(conds)) ),'bo','Markersize',5);
 

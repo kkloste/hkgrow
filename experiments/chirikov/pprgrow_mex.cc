@@ -93,6 +93,7 @@ struct sparsevec {
     for (map_type::iterator it=map.begin(),itend=map.end();it!=itend;++it) {
       s += it->second;
     }
+    return s;
   }
   
   /** Compute the max of the element values 

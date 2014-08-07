@@ -1,4 +1,5 @@
 %%
+addpath ../.. % because normout.m and hkgrow1.m are used
 
 %% Generate a network.
 Nx = 512;

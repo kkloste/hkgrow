@@ -1,0 +1,649 @@
+CommSize=55  CommID=677 	 HKfmeas=  0.1145  PRfmeas=  0.0724 	 HKsetsi
+ze=172  PRsetsize=387 	 HKprec=  0.0756  PRprec=  0.0413 	 seedID=229163 
+CommSize=51  CommID=687 	 HKfmeas=  0.1343  PRfmeas=  0.1333 	 HKsetsi
+ze=217  PRsetsize=219 	 HKprec=  0.0829  PRprec=  0.0822 	 seedID=15492 
+CommSize=54  CommID=718 	 HKfmeas=  0.3448  PRfmeas=  0.3371 	 HKsetsi
+ze=33  PRsetsize=35 	 HKprec=  0.4545  PRprec=  0.4286 	 seedID=86286 
+CommSize=58  CommID=725 	 HKfmeas=  0.0451  PRfmeas=  0.0379 	 HKsetsi
+ze=1892  PRsetsize=2262 	 HKprec=  0.0233  PRprec=  0.0195 	 seedID=
+71918 
+CommSize=61  CommID=751 	 HKfmeas=  0.4000  PRfmeas=  0.3136 	 HKsetsi
+ze=119  PRsetsize=175 	 HKprec=  0.3025  PRprec=  0.2114 	 seedID=37898 
+
+...skipping one line
+CommSize=65  CommID=789 	 HKfmeas=  0.0176  PRfmeas=  0.0208 	 HKsetsize=5049  PRsetsize=3400 	 HKprec=  0.0089  PRprec=  0.0106 	 se
+edID=2175 
+CommSize=52  CommID=792 	 HKfmeas=  0.0155  PRfmeas=  0.0237 	 HKsetsize=2521  PRsetsize=707 	 HKprec=  0.0079  PRprec=  0.0127 	 seedID=114
+891 
+CommSize=57  CommID=829 	 HKfmeas=  0.1875  PRfmeas=  0.0651 	 HKsetsize=263  PRsetsize=1479 	 HKprec=  0.1141  PRprec=  0.0338 	 seedID=924
+14 
+CommSize=63  CommID=859 	 HKfmeas=  0.3297  PRfmeas=  0.2605 	 HKsetsize=119  PRsetsize=175 	 HKprec=  0.2521  PRprec=  0.1771 	 seedID=378
+98 
+CommSize=71  CommID=865 	 HKfmeas=  0.1419  PRfmeas=  0.1183 	 HKsetsize=239  PRsetsize=301 	 HKprec=  0.0921  PRprec=  0.0731 	 seedID=914
+89 
+CommSize=62  CommID=882 	 HKfmeas=  0.1116  PRfmeas=  0.0759 	 HKsetsize=189  PRsetsize=333 	 HKprec=  0.0741  PRprec=  0.0450 	 seedID=282
+45 
+CommSize=55  CommID=898 	 HKfmeas=  0.0158  PRfmeas=  0.0316 	 HKsetsize=3357  PRsetsize=705 	 HKprec=  0.0080  PRprec=  0.0170 	 seedID=232
+17 
+CommSize=70  CommID=900 	 HKfmeas=  0.5000  PRfmeas=  0.3299 	 HKsetsize=98  PRsetsize=221 	 HKprec=  0.4286  PRprec=  0.2172 	 seedID=168
+61 
+CommSize=57  CommID=927 	 HKfmeas=  0.1348  PRfmeas=  0.1131 	 HKsetsize=225  PRsetsize=279 	 HKprec=  0.0844  PRprec=  0.0681 	 seedID=229
+885 
+CommSize=76  CommID=941 	 HKfmeas=  0.0536  PRfmeas=  0.0560 	 HKsetsize=1603  PRsetsize=1317 	 HKprec=  0.0281  PRprec=  0.0296 	 se
+edID=262102 
+CommSize=54  CommID=942 	 HKfmeas=  0.2012  PRfmeas=  0.1943 	 HKsetsize=115  PRsetsize=121 	 HKprec=  0.1478  PRprec=  0.1405 	 seedID=255
+38 
+CommSize=59  CommID=950 	 HKfmeas=  0.1744  PRfmeas=  0.1467 	 HKsetsize=136  PRsetsize=91 	 HKprec=  0.1250  PRprec=  0.1209 	 seedID=118
+885 
+CommSize=54  CommID=973 	 HKfmeas=  0.0395  PRfmeas=  0.0504 	 HKsetsize=1211  PRsetsize=700 	 HKprec=  0.0206  PRprec=  0.0271 	 seedID=371
+69 
+CommSize=56  CommID=974 	 HKfmeas=  0.0295  PRfmeas=  0.0248 	 HKsetsize=892  PRsetsize=912 	 HKprec=  0.0157  PRprec=  0.0132 	 seedID=350
+46 
+CommSize=58  CommID=985 	 HKfmeas=  0.0167  PRfmeas=  0.0139 	 HKsetsize=2570  PRsetsize=2683 	 HKprec=  0.0086  PRprec=  0.0071 	 se
+edID=43304 
+CommSize=55  CommID=996 	 HKfmeas=  0.1656  PRfmeas=  0.1527 	 HKsetsize=102  PRsetsize=76 	 HKprec=  0.1275  PRprec=  0.1316 	 seedID=165
+870 
+
+...skipping one line
+CommSize=54  CommID=1071 	 HKfmeas=  0.1176  PRfmeas=  0.0531 	 HKsetsize=133  PRsetsize=1152 	 HKprec=  0.0827  PRprec=  0.0278 	 seedID=144
+47 
+CommSize=74  CommID=1072 	 HKfmeas=  0.0374  PRfmeas=  0.0300 	 HKsetsize=1049  PRsetsize=592 	 HKprec=  0.0200  PRprec=  0.0169 	 seedID=744
+0 
+CommSize=55  CommID=1082 	 HKfmeas=  0.0096  PRfmeas=  0.0107 	 HKsetsize=2876  PRsetsize=878 	 HKprec=  0.0049  PRprec=  0.0057 	 seedID=555
+10 
+CommSize=56  CommID=1097 	 HKfmeas=  0.2295  PRfmeas=  0.2000 	 HKsetsize=66  PRsetsize=84 	 HKprec=  0.2121  PRprec=  0.1667 	 seedID=332
+02 
+CommSize=51  CommID=1129 	 HKfmeas=  0.0212  PRfmeas=  0.0167 	 HKsetsize=988  PRsetsize=1149 	 HKprec=  0.0111  PRprec=  0.0087 	 seedID=414
+74 
+CommSize=77  CommID=1143 	 HKfmeas=  0.0618  PRfmeas=  0.0429 	 HKsetsize=441  PRsetsize=63 	 HKprec=  0.0363  PRprec=  0.0476 	 seedID=810
+03 
+CommSize=65  CommID=1146 	 HKfmeas=  0.1963  PRfmeas=  0.1576 	 HKsetsize=98  PRsetsize=138 	 HKprec=  0.1633  PRprec=  0.1159 	 seedID=616
+23 
+CommSize=52  CommID=1150 	 HKfmeas=  0.0109  PRfmeas=  0.0138 	 HKsetsize=6353  PRsetsize=961 	 HKprec=  0.0055  PRprec=  0.0073 	 seedID=281
+21 
+CommSize=59  CommID=1157 	 HKfmeas=  0.0661  PRfmeas=  0.0670 	 HKsetsize=304  PRsetsize=299 	 HKprec=  0.0395  PRprec=  0.0401 	 seedID=275
+49 
+CommSize=76  CommID=1199 	 HKfmeas=  0.0483  PRfmeas=  0.0308 	 HKsetsize=669  PRsetsize=1091 	 HKprec=  0.0269  PRprec=  0.0165 	 seedID=268
+26 
+CommSize=68  CommID=1246 	 HKfmeas=  0.0346  PRfmeas=  0.0278 	 HKsetsize=800  PRsetsize=1155 	 HKprec=  0.0187  PRprec=  0.0147 	 seedID=109
+51 
+CommSize=66  CommID=1252 	 HKfmeas=  0.2039  PRfmeas=  0.1822 	 HKsetsize=297  PRsetsize=373 	 HKprec=  0.1246  PRprec=  0.1072 	 seedID=119
+218 
+CommSize=84  CommID=1254 	 HKfmeas=  0.1029  PRfmeas=  0.1101 	 HKsetsize=499  PRsetsize=443 	 HKprec=  0.0601  PRprec=  0.0655 	 seedID=172
+68 
+CommSize=57  CommID=1259 	 HKfmeas=  0.4037  PRfmeas=  0.3429 	 HKsetsize=52  PRsetsize=48 	 HKprec=  0.4231  PRprec=  0.3750 	 seedID=467
+20 
+CommSize=57  CommID=1276 	 HKfmeas=  0.1579  PRfmeas=  0.1283 	 HKsetsize=95  PRsetsize=130 	 HKprec=  0.1263  PRprec=  0.0923 	 seedID=185
+91 
+CommSize=87  CommID=1284 	 HKfmeas=  0.1187  PRfmeas=  0.0626 	 HKsetsize=250  PRsetsize=616 	 HKprec=  0.0800  PRprec=  0.0357 	 seedID=888
+ 
+
+...skipping one line
+CommSize=67  CommID=1302 	 HKfmeas=  0.1546  PRfmeas=  0.0801 	 HKsetsize=127  PRsetsize=482 	 HKprec=  0.1181  PRprec=  0.0456 	 seedID=603
+37 
+CommSize=97  CommID=1307 	 HKfmeas=  0.0970  PRfmeas=  0.0872 	 HKsetsize=790  PRsetsize=797 	 HKprec=  0.0544  PRprec=  0.0489 	 seedID=203
+03 
+CommSize=73  CommID=1308 	 HKfmeas=  0.2191  PRfmeas=  0.1251 	 HKsetsize=356  PRsetsize=790 	 HKprec=  0.1320  PRprec=  0.0684 	 seedID=263
+72 
+CommSize=58  CommID=1314 	 HKfmeas=  0.0129  PRfmeas=  0.0369 	 HKsetsize=1801  PRsetsize=267 	 HKprec=  0.0067  PRprec=  0.0225 	 seedID=399
+17 
+CommSize=78  CommID=1321 	 HKfmeas=  0.2658  PRfmeas=  0.2105 	 HKsetsize=238  PRsetsize=454 	 HKprec=  0.1765  PRprec=  0.1233 	 seedID=315
+44 
+CommSize=70  CommID=1331 	 HKfmeas=  0.1726  PRfmeas=  0.1372 	 HKsetsize=266  PRsetsize=382 	 HKprec=  0.1090  PRprec=  0.0812 	 seedID=117
+623 
+CommSize=110  CommID=1348 	 HKfmeas=  0.0686  PRfmeas=  0.0876 	 HKsetsize=2804  PRsetsize=2081 	 HKprec=  0.0357  PRprec=  0.0461 	 se
+edID=63527 
+CommSize=63  CommID=1349 	 HKfmeas=  0.2948  PRfmeas=  0.1942 	 HKsetsize=188  PRsetsize=349 	 HKprec=  0.1968  PRprec=  0.1146 	 seedID=476
+13 
+CommSize=59  CommID=1352 	 HKfmeas=  0.0260  PRfmeas=  0.0220 	 HKsetsize=1401  PRsetsize=1483 	 HKprec=  0.0136  PRprec=  0.0115 	 se
+edID=63481 
+CommSize=79  CommID=1365 	 HKfmeas=  0.0199  PRfmeas=  0.0136 	 HKsetsize=1532  PRsetsize=659 	 HKprec=  0.0104  PRprec=  0.0076 	 seedID=906
+22 
+CommSize=66  CommID=1381 	 HKfmeas=  0.2128  PRfmeas=  0.2256 	 HKsetsize=169  PRsetsize=200 	 HKprec=  0.1479  PRprec=  0.1500 	 seedID=913
+78 
+CommSize=75  CommID=1382 	 HKfmeas=  0.0320  PRfmeas=  0.0480 	 HKsetsize=1050  PRsetsize=508 	 HKprec=  0.0171  PRprec=  0.0276 	 seedID=127
+777 
+CommSize=65  CommID=1385 	 HKfmeas=  0.1667  PRfmeas=  0.0375 	 HKsetsize=163  PRsetsize=2764 	 HKprec=  0.1166  PRprec=  0.0192 	 seedID=105
+613 
+CommSize=64  CommID=1391 	 HKfmeas=  0.1281  PRfmeas=  0.1152 	 HKsetsize=139  PRsetsize=179 	 HKprec=  0.0935  PRprec=  0.0782 	 seedID=159
+43 
+CommSize=79  CommID=1393 	 HKfmeas=  0.2378  PRfmeas=  0.1123 	 HKsetsize=64  PRsetsize=1025 	 HKprec=  0.2656  PRprec=  0.0605 	 seedID=504
+03 
+CommSize=67  CommID=1394 	 HKfmeas=  0.0264  PRfmeas=  0.0292 	 HKsetsize=4245  PRsetsize=3495 	 HKprec=  0.0134  PRprec=  0.0149 	 se
+edID=1520 
+
+...skipping one line
+CommSize=81  CommID=1402 	 HKfmeas=  0.0415  PRfmeas=  0.0424 	 HKsetsize=930  PRsetsize=863 	 HKprec=  0.0226  PRprec=  0.0232 	 seedID=112
+46 
+CommSize=74  CommID=1418 	 HKfmeas=  0.1965  PRfmeas=  0.1010 	 HKsetsize=99  PRsetsize=540 	 HKprec=  0.1717  PRprec=  0.0574 	 seedID=154
+26 
+CommSize=108  CommID=1440 	 HKfmeas=  0.1083  PRfmeas=  0.1057 	 HKsetsize=520  PRsetsize=327 	 HKprec=  0.0654  PRprec=  0.0703 	 seedID=251
+363 
+CommSize=52  CommID=1465 	 HKfmeas=  0.0362  PRfmeas=  0.0276 	 HKsetsize=667  PRsetsize=961 	 HKprec=  0.0195  PRprec=  0.0146 	 seedID=707
+77 
+CommSize=52  CommID=1469 	 HKfmeas=  0.2105  PRfmeas=  0.2095 	 HKsetsize=62  PRsetsize=53 	 HKprec=  0.1935  PRprec=  0.2075 	 seedID=234
+782 
+CommSize=60  CommID=1477 	 HKfmeas=  0.2039  PRfmeas=  0.1900 	 HKsetsize=146  PRsetsize=161 	 HKprec=  0.1438  PRprec=  0.1304 	 seedID=371
+19 
+CommSize=95  CommID=1483 	 HKfmeas=  0.0517  PRfmeas=  0.0551 	 HKsetsize=678  PRsetsize=595 	 HKprec=  0.0295  PRprec=  0.0319 	 seedID=433
+47 
+CommSize=80  CommID=1485 	 HKfmeas=  0.1888  PRfmeas=  0.1799 	 HKsetsize=206  PRsetsize=209 	 HKprec=  0.1311  PRprec=  0.1244 	 seedID=127
+344 
+CommSize=51  CommID=1488 	 HKfmeas=  0.2345  PRfmeas=  0.0734 	 HKsetsize=94  PRsetsize=766 	 HKprec=  0.1809  PRprec=  0.0392 	 seedID=228
+003 
+CommSize=74  CommID=1493 	 HKfmeas=  0.0571  PRfmeas=  0.0410 	 HKsetsize=591  PRsetsize=901 	 HKprec=  0.0321  PRprec=  0.0222 	 seedID=106
+618 
+CommSize=52  CommID=1506 	 HKfmeas=  0.1324  PRfmeas=  0.1250 	 HKsetsize=220  PRsetsize=140 	 HKprec=  0.0818  PRprec=  0.0857 	 seedID=106
+569 
+CommSize=57  CommID=1519 	 HKfmeas=  0.5467  PRfmeas=  0.4490 	 HKsetsize=93  PRsetsize=139 	 HKprec=  0.4409  PRprec=  0.3165 	 seedID=247
+771 
+CommSize=95  CommID=1540 	 HKfmeas=  0.1797  PRfmeas=  0.1069 	 HKsetsize=250  PRsetsize=616 	 HKprec=  0.1240  PRprec=  0.0617 	 seedID=888
+ 
+CommSize=66  CommID=1541 	 HKfmeas=  0.0275  PRfmeas=  0.0240 	 HKsetsize=1751  PRsetsize=2101 	 HKprec=  0.0143  PRprec=  0.0124 	 se
+edID=18221 
+CommSize=94  CommID=1549 	 HKfmeas=  0.0161  PRfmeas=  0.0208 	 HKsetsize=7869  PRsetsize=4617 	 HKprec=  0.0081  PRprec=  0.0106 	 se
+edID=1956 
+CommSize=57  CommID=1551 	 HKfmeas=  0.0415  PRfmeas=  0.0340 	 HKsetsize=714  PRsetsize=885 	 HKprec=  0.0224  PRprec=  0.0181 	 seedID=180
+77 
+
+...skipping one line
+CommSize=61  CommID=1557 	 HKfmeas=  0.1974  PRfmeas=  0.1750 	 HKsetsize=91  PRsetsize=99 	 HKprec=  0.1648  PRprec=  0.1414 	 seedID=166
+15 
+CommSize=88  CommID=1560 	 HKfmeas=  0.0725  PRfmeas=  0.1096 	 HKsetsize=1429  PRsetsize=131 	 HKprec=  0.0385  PRprec=  0.0916 	 seedID=386
+38 
+CommSize=100  CommID=1564 	 HKfmeas=  0.0637  PRfmeas=  0.0667 	 HKsetsize=716  PRsetsize=650 	 HKprec=  0.0363  PRprec=  0.0385 	 seedID=928
+8 
+CommSize=73  CommID=1566 	 HKfmeas=  0.0357  PRfmeas=  0.0306 	 HKsetsize=1104  PRsetsize=516 	 HKprec=  0.0190  PRprec=  0.0174 	 seedID=132
+435 
+CommSize=64  CommID=1576 	 HKfmeas=  0.0768  PRfmeas=  0.0700 	 HKsetsize=613  PRsetsize=850 	 HKprec=  0.0424  PRprec=  0.0376 	 seedID=612
+31 
+CommSize=105  CommID=1599 	 HKfmeas=  0.1016  PRfmeas=  0.0996 	 HKsetsize=407  PRsetsize=397 	 HKprec=  0.0639  PRprec=  0.0630 	 seedID=143
+707 
+CommSize=83  CommID=1606 	 HKfmeas=  0.0368  PRfmeas=  0.0192 	 HKsetsize=1168  PRsetsize=1061 	 HKprec=  0.0197  PRprec=  0.0104 	 se
+edID=5620 
+CommSize=72  CommID=1607 	 HKfmeas=  0.0245  PRfmeas=  0.0335 	 HKsetsize=3524  PRsetsize=2080 	 HKprec=  0.0125  PRprec=  0.0173 	 se
+edID=6343 
+CommSize=87  CommID=1615 	 HKfmeas=  0.0842  PRfmeas=  0.0708 	 HKsetsize=839  PRsetsize=1127 	 HKprec=  0.0465  PRprec=  0.0382 	 seedID=494
+99 
+CommSize=64  CommID=1640 	 HKfmeas=  0.0879  PRfmeas=  0.0792 	 HKsetsize=300  PRsetsize=239 	 HKprec=  0.0533  PRprec=  0.0502 	 seedID=186
+628 
+CommSize=72  CommID=1648 	 HKfmeas=  0.5000  PRfmeas=  0.4685 	 HKsetsize=32  PRsetsize=39 	 HKprec=  0.8125  PRprec=  0.6667 	 seedID=370
+13 
+CommSize=70  CommID=1655 	 HKfmeas=  0.0664  PRfmeas=  0.0547 	 HKsetsize=774  PRsetsize=881 	 HKprec=  0.0362  PRprec=  0.0295 	 seedID=339
+09 
+CommSize=96  CommID=1661 	 HKfmeas=  0.1860  PRfmeas=  0.1571 	 HKsetsize=248  PRsetsize=324 	 HKprec=  0.1290  PRprec=  0.1019 	 seedID=145
+232 
+CommSize=55  CommID=1669 	 HKfmeas=  0.1400  PRfmeas=  0.1116 	 HKsetsize=145  PRsetsize=196 	 HKprec=  0.0966  PRprec=  0.0714 	 seedID=886
+8 
+CommSize=79  CommID=1675 	 HKfmeas=  0.0217  PRfmeas=  0.0263 	 HKsetsize=4245  PRsetsize=3495 	 HKprec=  0.0111  PRprec=  0.0134 	 se
+edID=1520 
+CommSize=76  CommID=1680 	 HKfmeas=  0.0435  PRfmeas=  0.0364 	 HKsetsize=752  PRsetsize=967 	 HKprec=  0.0239  PRprec=  0.0196 	 seedID=195
+05 
+
+...skipping one line
+CommSize=63  CommID=1688 	 HKfmeas=  0.4925  PRfmeas=  0.2428 	 HKsetsize=71  PRsetsize=283 	 HKprec=  0.4648  PRprec=  0.1484 	 seedID=266
+382 
+CommSize=79  CommID=1694 	 HKfmeas=  0.2203  PRfmeas=  0.2151 	 HKsetsize=157  PRsetsize=172 	 HKprec=  0.1656  PRprec=  0.1570 	 seedID=134
+409 
+CommSize=98  CommID=1698 	 HKfmeas=  0.1099  PRfmeas=  0.0908 	 HKsetsize=521  PRsetsize=805 	 HKprec=  0.0653  PRprec=  0.0509 	 seedID=439
+00 
+CommSize=89  CommID=1714 	 HKfmeas=  0.0914  PRfmeas=  0.0692 	 HKsetsize=305  PRsetsize=402 	 HKprec=  0.0590  PRprec=  0.0423 	 seedID=194
+99 
+CommSize=64  CommID=1750 	 HKfmeas=  0.2078  PRfmeas=  0.2238 	 HKsetsize=90  PRsetsize=79 	 HKprec=  0.1778  PRprec=  0.2025 	 seedID=617
+38 
+CommSize=52  CommID=1760 	 HKfmeas=  0.1781  PRfmeas=  0.0487 	 HKsetsize=94  PRsetsize=729 	 HKprec=  0.1383  PRprec=  0.0261 	 seedID=243
+94 
+CommSize=92  CommID=1769 	 HKfmeas=  0.0954  PRfmeas=  0.0756 	 HKsetsize=621  PRsetsize=807 	 HKprec=  0.0548  PRprec=  0.0421 	 seedID=234
+17 
+CommSize=87  CommID=1773 	 HKfmeas=  0.0606  PRfmeas=  0.0272 	 HKsetsize=507  PRsetsize=60 	 HKprec=  0.0355  PRprec=  0.0333 	 seedID=169
+96 
+CommSize=100  CommID=1774 	 HKfmeas=  0.0838  PRfmeas=  0.0734 	 HKsetsize=425  PRsetsize=581 	 HKprec=  0.0518  PRprec=  0.0430 	 seedID=208
+633 
+CommSize=60  CommID=1799 	 HKfmeas=  0.1226  PRfmeas=  0.0459 	 HKsetsize=201  PRsetsize=681 	 HKprec=  0.0796  PRprec=  0.0250 	 seedID=203
+448 
+CommSize=83  CommID=1811 	 HKfmeas=  0.0876  PRfmeas=  0.0782 	 HKsetsize=351  PRsetsize=403 	 HKprec=  0.0541  PRprec=  0.0471 	 seedID=391
+55 
+CommSize=89  CommID=1833 	 HKfmeas=  0.3200  PRfmeas=  0.3101 	 HKsetsize=36  PRsetsize=40 	 HKprec=  0.5556  PRprec=  0.5000 	 seedID=795
+20 
+CommSize=79  CommID=1835 	 HKfmeas=  0.0252  PRfmeas=  0.0238 	 HKsetsize=2699  PRsetsize=2356 	 HKprec=  0.0130  PRprec=  0.0123 	 se
+edID=18981 
+CommSize=117  CommID=1843 	 HKfmeas=  0.2924  PRfmeas=  0.2510 	 HKsetsize=54  PRsetsize=122 	 HKprec=  0.4630  PRprec=  0.2459 	 seedID=997
+10 
+CommSize=69  CommID=1861 	 HKfmeas=  0.1879  PRfmeas=  0.1840 	 HKsetsize=80  PRsetsize=94 	 HKprec=  0.1750  PRprec=  0.1596 	 seedID=561
+99 
+CommSize=115  CommID=1865 	 HKfmeas=  0.1552  PRfmeas=  0.1364 	 HKsetsize=220  PRsetsize=237 	 HKprec=  0.1182  PRprec=  0.1013 	 seedID=836
+92 
+
+...skipping one line
+CommSize=97  CommID=1887 	 HKfmeas=  0.0773  PRfmeas=  0.0599 	 HKsetsize=990  PRsetsize=1339 	 HKprec=  0.0424  PRprec=  0.0321 	 seedID=240
+70 
+CommSize=97  CommID=1892 	 HKfmeas=  0.1297  PRfmeas=  0.1103 	 HKsetsize=412  PRsetsize=574 	 HKprec=  0.0801  PRprec=  0.0645 	 seedID=208
+82 
+CommSize=104  CommID=1893 	 HKfmeas=  0.1808  PRfmeas=  0.1431 	 HKsetsize=250  PRsetsize=413 	 HKprec=  0.1280  PRprec=  0.0896 	 seedID=230
+9 
+CommSize=87  CommID=1899 	 HKfmeas=  0.1101  PRfmeas=  0.0876 	 HKsetsize=258  PRsetsize=347 	 HKprec=  0.0736  PRprec=  0.0548 	 seedID=170
+028 
+CommSize=81  CommID=1920 	 HKfmeas=  0.2000  PRfmeas=  0.1271 	 HKsetsize=119  PRsetsize=281 	 HKprec=  0.1681  PRprec=  0.0819 	 seedID=134
+637 
+CommSize=113  CommID=1926 	 HKfmeas=  0.2165  PRfmeas=  0.1793 	 HKsetsize=238  PRsetsize=32 	 HKprec=  0.1597  PRprec=  0.4062 	 seedID=137
+925 
+CommSize=87  CommID=1943 	 HKfmeas=  0.2660  PRfmeas=  0.2065 	 HKsetsize=116  PRsetsize=97 	 HKprec=  0.2328  PRprec=  0.1959 	 seedID=275
+458 
+CommSize=51  CommID=1983 	 HKfmeas=  0.2167  PRfmeas=  0.0734 	 HKsetsize=69  PRsetsize=494 	 HKprec=  0.1884  PRprec=  0.0405 	 seedID=152
+555 
+CommSize=73  CommID=1991 	 HKfmeas=  0.2323  PRfmeas=  0.2118 	 HKsetsize=82  PRsetsize=97 	 HKprec=  0.2195  PRprec=  0.1856 	 seedID=768
+80 
+CommSize=99  CommID=1995 	 HKfmeas=  0.1947  PRfmeas=  0.0929 	 HKsetsize=127  PRsetsize=482 	 HKprec=  0.1732  PRprec=  0.0560 	 seedID=603
+37 
+CommSize=79  CommID=2006 	 HKfmeas=  0.1303  PRfmeas=  0.0783 	 HKsetsize=182  PRsetsize=381 	 HKprec=  0.0934  PRprec=  0.0472 	 seedID=607
+75 
+CommSize=52  CommID=2012 	 HKfmeas=  0.1491  PRfmeas=  0.1224 	 HKsetsize=109  PRsetsize=144 	 HKprec=  0.1101  PRprec=  0.0833 	 seedID=895
+64 
+CommSize=75  CommID=2014 	 HKfmeas=  0.1478  PRfmeas=  0.1156 	 HKsetsize=155  PRsetsize=219 	 HKprec=  0.1097  PRprec=  0.0776 	 seedID=362
+58 
+CommSize=96  CommID=2021 	 HKfmeas=  0.0241  PRfmeas=  0.0233 	 HKsetsize=3473  PRsetsize=2827 	 HKprec=  0.0124  PRprec=  0.0120 	 se
+edID=79238 
+CommSize=110  CommID=2023 	 HKfmeas=  0.1141  PRfmeas=  0.1053 	 HKsetsize=416  PRsetsize=707 	 HKprec=  0.0721  PRprec=  0.0608 	 seedID=103
+147 
+CommSize=82  CommID=2024 	 HKfmeas=  0.1860  PRfmeas=  0.1469 	 HKsetsize=133  PRsetsize=204 	 HKprec=  0.1504  PRprec=  0.1029 	 seedID=658
+37 
+
+...skipping one line
+CommSize=73  CommID=2040 	 HKfmeas=  0.0246  PRfmeas=  0.0540 	 HKsetsize=5614  PRsetsize=668 	 HKprec=  0.0125  PRprec=  0.0299 	 seedID=312
+1 
+CommSize=55  CommID=2042 	 HKfmeas=  0.3516  PRfmeas=  0.2315 	 HKsetsize=36  PRsetsize=256 	 HKprec=  0.4444  PRprec=  0.1406 	 seedID=178
+664 
+CommSize=97  CommID=2060 	 HKfmeas=  0.1425  PRfmeas=  0.1226 	 HKsetsize=282  PRsetsize=262 	 HKprec=  0.0957  PRprec=  0.0840 	 seedID=570
+62 
+CommSize=99  CommID=2064 	 HKfmeas=  0.0511  PRfmeas=  0.0438 	 HKsetsize=918  PRsetsize=1088 	 HKprec=  0.0283  PRprec=  0.0239 	 seedID=580
+40 
+CommSize=92  CommID=2080 	 HKfmeas=  0.0259  PRfmeas=  0.0303 	 HKsetsize=4148  PRsetsize=3077 	 HKprec=  0.0133  PRprec=  0.0156 	 se
+edID=6318 
+CommSize=102  CommID=2096 	 HKfmeas=  0.2491  PRfmeas=  0.1646 	 HKsetsize=163  PRsetsize=56 	 HKprec=  0.2025  PRprec=  0.2321 	 seedID=761
+65 
+CommSize=117  CommID=2103 	 HKfmeas=  0.0254  PRfmeas=  0.0242 	 HKsetsize=4061  PRsetsize=4093 	 HKprec=  0.0131  PRprec=  0.0125 	 se
+edID=72875 
+CommSize=81  CommID=2104 	 HKfmeas=  0.1219  PRfmeas=  0.1079 	 HKsetsize=198  PRsetsize=197 	 HKprec=  0.0859  PRprec=  0.0761 	 seedID=240
+43 
+CommSize=56  CommID=2115 	 HKfmeas=  0.3133  PRfmeas=  0.3095 	 HKsetsize=27  PRsetsize=28 	 HKprec=  0.4815  PRprec=  0.4643 	 seedID=164
+790 
+CommSize=105  CommID=2118 	 HKfmeas=  0.1120  PRfmeas=  0.0832 	 HKsetsize=288  PRsetsize=352 	 HKprec=  0.0764  PRprec=  0.0540 	 seedID=853
+43 
+CommSize=116  CommID=2139 	 HKfmeas=  0.1455  PRfmeas=  0.1394 	 HKsetsize=365  PRsetsize=429 	 HKprec=  0.0959  PRprec=  0.0886 	 seedID=343
+77 
+CommSize=52  CommID=2140 	 HKfmeas=  0.1277  PRfmeas=  0.0519 	 HKsetsize=136  PRsetsize=25 	 HKprec=  0.0882  PRprec=  0.0800 	 seedID=229
+22 
+CommSize=60  CommID=2155 	 HKfmeas=  0.1028  PRfmeas=  0.0615 	 HKsetsize=193  PRsetsize=721 	 HKprec=  0.0674  PRprec=  0.0333 	 seedID=255
+21 
+CommSize=92  CommID=2158 	 HKfmeas=  0.1405  PRfmeas=  0.1265 	 HKsetsize=207  PRsetsize=240 	 HKprec=  0.1014  PRprec=  0.0875 	 seedID=285
+029 
+CommSize=79  CommID=2161 	 HKfmeas=  0.1282  PRfmeas=  0.0909 	 HKsetsize=233  PRsetsize=383 	 HKprec=  0.0858  PRprec=  0.0548 	 seedID=921
+57 
+CommSize=73  CommID=2168 	 HKfmeas=  0.2642  PRfmeas=  0.0699 	 HKsetsize=86  PRsetsize=1014 	 HKprec=  0.2442  PRprec=  0.0375 	 seedID=234
+956 
+
+...skipping one line
+CommSize=104  CommID=2191 	 HKfmeas=  0.0907  PRfmeas=  0.0738 	 HKsetsize=712  PRsetsize=1089 	 HKprec=  0.0520  PRprec=  0.0404 	 seedID=261
+03 
+CommSize=56  CommID=2210 	 HKfmeas=  0.2243  PRfmeas=  0.1727 	 HKsetsize=51  PRsetsize=83 	 HKprec=  0.2353  PRprec=  0.1446 	 seedID=185
+84 
+CommSize=103  CommID=2241 	 HKfmeas=  0.0621  PRfmeas=  0.0478 	 HKsetsize=670  PRsetsize=1236 	 HKprec=  0.0358  PRprec=  0.0259 	 seedID=945
+65 
+CommSize=71  CommID=2262 	 HKfmeas=  0.1077  PRfmeas=  0.0896 	 HKsetsize=319  PRsetsize=420 	 HKprec=  0.0658  PRprec=  0.0524 	 seedID=438
+99 
+CommSize=93  CommID=2265 	 HKfmeas=  0.3027  PRfmeas=  0.2771 	 HKsetsize=92  PRsetsize=73 	 HKprec=  0.3043  PRprec=  0.3151 	 seedID=130
+95 
+CommSize=111  CommID=2299 	 HKfmeas=  0.3736  PRfmeas=  0.3434 	 HKsetsize=71  PRsetsize=87 	 HKprec=  0.4789  PRprec=  0.3908 	 seedID=124
+662 
+CommSize=59  CommID=2310 	 HKfmeas=  0.0627  PRfmeas=  0.0478 	 HKsetsize=515  PRsetsize=694 	 HKprec=  0.0350  PRprec=  0.0259 	 seedID=150
+212 
+CommSize=109  CommID=2334 	 HKfmeas=  0.2514  PRfmeas=  0.1586 	 HKsetsize=66  PRsetsize=181 	 HKprec=  0.3333  PRprec=  0.1271 	 seedID=917
+61 
+CommSize=108  CommID=2336 	 HKfmeas=  0.4145  PRfmeas=  0.3602 	 HKsetsize=85  PRsetsize=103 	 HKprec=  0.4706  PRprec=  0.3689 	 seedID=102
+442 
+CommSize=101  CommID=2350 	 HKfmeas=  0.0330  PRfmeas=  0.0334 	 HKsetsize=2925  PRsetsize=2896 	 HKprec=  0.0171  PRprec=  0.0173 	 se
+edID=105153 
+CommSize=60  CommID=2351 	 HKfmeas=  0.0549  PRfmeas=  0.0374 	 HKsetsize=815  PRsetsize=1437 	 HKprec=  0.0294  PRprec=  0.0195 	 seedID=172
+92 
+CommSize=101  CommID=2355 	 HKfmeas=  0.3733  PRfmeas=  0.3660 	 HKsetsize=49  PRsetsize=52 	 HKprec=  0.5714  PRprec=  0.5385 	 seedID=438
+07 
+CommSize=116  CommID=2360 	 HKfmeas=  0.0588  PRfmeas=  0.0498 	 HKsetsize=1041  PRsetsize=1090 	 HKprec=  0.0327  PRprec=  0.0275 	 se
+edID=161318 
+CommSize=114  CommID=2363 	 HKfmeas=  0.0438  PRfmeas=  0.0344 	 HKsetsize=1211  PRsetsize=700 	 HKprec=  0.0239  PRprec=  0.0200 	 seedID=371
+69 
+CommSize=81  CommID=2364 	 HKfmeas=  0.0205  PRfmeas=  0.0274 	 HKsetsize=1871  PRsetsize=1089 	 HKprec=  0.0107  PRprec=  0.0147 	 se
+edID=53212 
+CommSize=99  CommID=2390 	 HKfmeas=  0.1805  PRfmeas=  0.1738 	 HKsetsize=178  PRsetsize=511 	 HKprec=  0.1404  PRprec=  0.1037 	 seedID=662
+85 
+
+...skipping one line
+CommSize=107  CommID=2399 	 HKfmeas=  0.0551  PRfmeas=  0.0529 	 HKsetsize=836  PRsetsize=990 	 HKprec=  0.0311  PRprec=  0.0293 	 seedID=406
+37 
+CommSize=59  CommID=2404 	 HKfmeas=  0.3182  PRfmeas=  0.2857 	 HKsetsize=29  PRsetsize=25 	 HKprec=  0.4828  PRprec=  0.4800 	 seedID=142
+89 
+CommSize=70  CommID=2414 	 HKfmeas=  0.0938  PRfmeas=  0.0771 	 HKsetsize=335  PRsetsize=423 	 HKprec=  0.0567  PRprec=  0.0449 	 seedID=171
+77 
+CommSize=116  CommID=2424 	 HKfmeas=  0.0583  PRfmeas=  0.0717 	 HKsetsize=708  PRsetsize=107 	 HKprec=  0.0339  PRprec=  0.0748 	 seedID=151
+107 
+CommSize=119  CommID=2457 	 HKfmeas=  0.0312  PRfmeas=  0.0240 	 HKsetsize=1867  PRsetsize=1049 	 HKprec=  0.0166  PRprec=  0.0133 	 se
+edID=59961 
+CommSize=89  CommID=2471 	 HKfmeas=  0.1776  PRfmeas=  0.1205 	 HKsetsize=125  PRsetsize=243 	 HKprec=  0.1520  PRprec=  0.0823 	 seedID=191
+617 
+CommSize=74  CommID=2477 	 HKfmeas=  0.1259  PRfmeas=  0.0745 	 HKsetsize=339  PRsetsize=893 	 HKprec=  0.0767  PRprec=  0.0403 	 seedID=174
+587 
+CommSize=59  CommID=2484 	 HKfmeas=  0.1197  PRfmeas=  0.1111 	 HKsetsize=225  PRsetsize=247 	 HKprec=  0.0756  PRprec=  0.0688 	 seedID=439
+04 
+CommSize=112  CommID=2492 	 HKfmeas=  0.0930  PRfmeas=  0.0995 	 HKsetsize=533  PRsetsize=451 	 HKprec=  0.0563  PRprec=  0.0621 	 seedID=165
+73 
+CommSize=75  CommID=2504 	 HKfmeas=  0.0177  PRfmeas=  0.0609 	 HKsetsize=2975  PRsetsize=155 	 HKprec=  0.0091  PRprec=  0.0452 	 seedID=420
+03 
+CommSize=101  CommID=2507 	 HKfmeas=  0.0226  PRfmeas=  0.0242 	 HKsetsize=3446  PRsetsize=3293 	 HKprec=  0.0116  PRprec=  0.0125 	 se
+edID=46798 
+CommSize=101  CommID=2538 	 HKfmeas=  0.1340  PRfmeas=  0.0876 	 HKsetsize=302  PRsetsize=698 	 HKprec=  0.0894  PRprec=  0.0501 	 seedID=502
+38 
+CommSize=91  CommID=2542 	 HKfmeas=  0.1909  PRfmeas=  0.1707 	 HKsetsize=129  PRsetsize=155 	 HKprec=  0.1628  PRprec=  0.1355 	 seedID=119
+083 
+CommSize=84  CommID=2562 	 HKfmeas=  0.0549  PRfmeas=  0.0473 	 HKsetsize=791  PRsetsize=930 	 HKprec=  0.0303  PRprec=  0.0258 	 seedID=603
+56 
+CommSize=77  CommID=2569 	 HKfmeas=  0.0372  PRfmeas=  0.0289 	 HKsetsize=837  PRsetsize=1030 	 HKprec=  0.0203  PRprec=  0.0155 	 seedID=224
+720 
+CommSize=54  CommID=2589 	 HKfmeas=  0.1514  PRfmeas=  0.1407 	 HKsetsize=131  PRsetsize=145 	 HKprec=  0.1069  PRprec=  0.0966 	 seedID=114
+634 
+
+...skipping one line
+CommSize=105  CommID=2637 	 HKfmeas=  0.0832  PRfmeas=  0.0684 	 HKsetsize=424  PRsetsize=801 	 HKprec=  0.0519  PRprec=  0.0387 	 seedID=501
+86 
+CommSize=119  CommID=2648 	 HKfmeas=  0.1661  PRfmeas=  0.1353 	 HKsetsize=170  PRsetsize=147 	 HKprec=  0.1412  PRprec=  0.1224 	 seedID=268
+90 
+CommSize=90  CommID=2662 	 HKfmeas=  0.2683  PRfmeas=  0.2238 	 HKsetsize=74  PRsetsize=53 	 HKprec=  0.2973  PRprec=  0.3019 	 seedID=146
+20 
+CommSize=97  CommID=2698 	 HKfmeas=  0.0888  PRfmeas=  0.0814 	 HKsetsize=421  PRsetsize=124 	 HKprec=  0.0546  PRprec=  0.0726 	 seedID=586
+64 
+CommSize=95  CommID=2720 	 HKfmeas=  0.0926  PRfmeas=  0.0771 	 HKsetsize=337  PRsetsize=346 	 HKprec=  0.0593  PRprec=  0.0491 	 seedID=104
+35 
+CommSize=113  CommID=2728 	 HKfmeas=  0.0556  PRfmeas=  0.0526 	 HKsetsize=715  PRsetsize=723 	 HKprec=  0.0322  PRprec=  0.0304 	 seedID=184
+309 
+CommSize=64  CommID=2739 	 HKfmeas=  0.5926  PRfmeas=  0.2892 	 HKsetsize=98  PRsetsize=351 	 HKprec=  0.4898  PRprec=  0.1709 	 seedID=608
+07 
+CommSize=100  CommID=2774 	 HKfmeas=  0.2280  PRfmeas=  0.2056 	 HKsetsize=93  PRsetsize=114 	 HKprec=  0.2366  PRprec=  0.1930 	 seedID=113
+173 
+CommSize=56  CommID=2786 	 HKfmeas=  0.2459  PRfmeas=  0.1731 	 HKsetsize=66  PRsetsize=152 	 HKprec=  0.2273  PRprec=  0.1184 	 seedID=134
+369 
+CommSize=101  CommID=2795 	 HKfmeas=  0.3298  PRfmeas=  0.3388 	 HKsetsize=87  PRsetsize=82 	 HKprec=  0.3563  PRprec=  0.3780 	 seedID=811
+26 
+CommSize=105  CommID=2799 	 HKfmeas=  0.1470  PRfmeas=  0.1267 	 HKsetsize=276  PRsetsize=258 	 HKprec=  0.1014  PRprec=  0.0891 	 seedID=224
+958 
+CommSize=108  CommID=2805 	 HKfmeas=  0.3049  PRfmeas=  0.2548 	 HKsetsize=56  PRsetsize=49 	 HKprec=  0.4464  PRprec=  0.4082 	 seedID=242
+900 
+CommSize=71  CommID=2818 	 HKfmeas=  0.2879  PRfmeas=  0.2703 	 HKsetsize=61  PRsetsize=77 	 HKprec=  0.3115  PRprec=  0.2597 	 seedID=112
+035 
+CommSize=119  CommID=2835 	 HKfmeas=  0.1864  PRfmeas=  0.1033 	 HKsetsize=396  PRsetsize=1449 	 HKprec=  0.1212  PRprec=  0.0559 	 seedID=373
+74 
+CommSize=74  CommID=2868 	 HKfmeas=  0.2320  PRfmeas=  0.1445 	 HKsetsize=107  PRsetsize=272 	 HKprec=  0.1963  PRprec=  0.0919 	 seedID=444
+90 
+CommSize=100  CommID=2876 	 HKfmeas=  0.0683  PRfmeas=  0.0721 	 HKsetsize=779  PRsetsize=344 	 HKprec=  0.0385  PRprec=  0.0465 	 seedID=152
+907 
+
+...skipping one line
+CommSize=86  CommID=2889 	 HKfmeas=  0.1080  PRfmeas=  0.1152 	 HKsetsize=488  PRsetsize=487 	 HKprec=  0.0635  PRprec=  0.0678 	 seedID=888
+8 
+CommSize=77  CommID=2892 	 HKfmeas=  0.0444  PRfmeas=  0.0368 	 HKsetsize=733  PRsetsize=957 	 HKprec=  0.0246  PRprec=  0.0199 	 seedID=436
+7 
+CommSize=66  CommID=2909 	 HKfmeas=  0.1682  PRfmeas=  0.1295 	 HKsetsize=148  PRsetsize=73 	 HKprec=  0.1216  PRprec=  0.1233 	 seedID=208
+784 
+CommSize=60  CommID=2915 	 HKfmeas=  0.0509  PRfmeas=  0.0247 	 HKsetsize=569  PRsetsize=1804 	 HKprec=  0.0281  PRprec=  0.0127 	 seedID=360
+93 
+CommSize=77  CommID=2925 	 HKfmeas=  0.1298  PRfmeas=  0.0478 	 HKsetsize=185  PRsetsize=885 	 HKprec=  0.0919  PRprec=  0.0260 	 seedID=974
+87 
+CommSize=100  CommID=2930 	 HKfmeas=  0.0281  PRfmeas=  0.0544 	 HKsetsize=4023  PRsetsize=1040 	 HKprec=  0.0144  PRprec=  0.0298 	 se
+edID=77760 
+CommSize=87  CommID=2944 	 HKfmeas=  0.3402  PRfmeas=  0.2869 	 HKsetsize=107  PRsetsize=150 	 HKprec=  0.3084  PRprec=  0.2267 	 seedID=202
+25 
+CommSize=98  CommID=2949 	 HKfmeas=  0.2100  PRfmeas=  0.2011 	 HKsetsize=102  PRsetsize=81 	 HKprec=  0.2059  PRprec=  0.2222 	 seedID=161
+053 
+CommSize=62  CommID=3013 	 HKfmeas=  0.0211  PRfmeas=  0.0741 	 HKsetsize=1643  PRsetsize=19 	 HKprec=  0.0110  PRprec=  0.1579 	 seedID=492
+9 
+CommSize=94  CommID=3018 	 HKfmeas=  0.2391  PRfmeas=  0.2244 	 HKsetsize=182  PRsetsize=209 	 HKprec=  0.1813  PRprec=  0.1627 	 seedID=501
+01 
+CommSize=52  CommID=3028 	 HKfmeas=  0.1769  PRfmeas=  0.1739 	 HKsetsize=95  PRsetsize=63 	 HKprec=  0.1368  PRprec=  0.1587 	 seedID=876
+0 
+CommSize=101  CommID=3034 	 HKfmeas=  0.2500  PRfmeas=  0.2155 	 HKsetsize=99  PRsetsize=131 	 HKprec=  0.2525  PRprec=  0.1908 	 seedID=597
+22 
+CommSize=109  CommID=3050 	 HKfmeas=  0.2625  PRfmeas=  0.1536 	 HKsetsize=211  PRsetsize=607 	 HKprec=  0.1991  PRprec=  0.0906 	 seedID=130
+133 
+CommSize=59  CommID=3056 	 HKfmeas=  0.2947  PRfmeas=  0.1250 	 HKsetsize=36  PRsetsize=277 	 HKprec=  0.3889  PRprec=  0.0758 	 seedID=150
+365 
+CommSize=62  CommID=3087 	 HKfmeas=  0.2745  PRfmeas=  0.1858 	 HKsetsize=142  PRsetsize=121 	 HKprec=  0.1972  PRprec=  0.1405 	 seedID=492
+13 
+CommSize=94  CommID=3104 	 HKfmeas=  0.3441  PRfmeas=  0.2527 	 HKsetsize=92  PRsetsize=183 	 HKprec=  0.3478  PRprec=  0.1913 	 seedID=217
+744 
+
+...skipping one line
+CommSize=71  CommID=3217 	 HKfmeas=  0.1751  PRfmeas=  0.1299 	 HKsetsize=226  PRsetsize=160 	 HKprec=  0.1150  PRprec=  0.0938 	 seedID=278
+82 
+CommSize=106  CommID=3222 	 HKfmeas=  0.2556  PRfmeas=  0.2118 	 HKsetsize=160  PRsetsize=234 	 HKprec=  0.2125  PRprec=  0.1538 	 seedID=140
+165 
+CommSize=77  CommID=3241 	 HKfmeas=  0.2980  PRfmeas=  0.2406 	 HKsetsize=178  PRsetsize=297 	 HKprec=  0.2135  PRprec=  0.1515 	 seedID=123
+672 
+CommSize=74  CommID=3263 	 HKfmeas=  0.3059  PRfmeas=  0.2629 	 HKsetsize=96  PRsetsize=139 	 HKprec=  0.2708  PRprec=  0.2014 	 seedID=882
+56 
+CommSize=104  CommID=3270 	 HKfmeas=  0.1636  PRfmeas=  0.1392 	 HKsetsize=165  PRsetsize=169 	 HKprec=  0.1333  PRprec=  0.1124 	 seedID=221
+229 
+CommSize=84  CommID=3316 	 HKfmeas=  0.4528  PRfmeas=  0.4157 	 HKsetsize=75  PRsetsize=94 	 HKprec=  0.4800  PRprec=  0.3936 	 seedID=825
+22 
+CommSize=68  CommID=3328 	 HKfmeas=  0.1648  PRfmeas=  0.1481 	 HKsetsize=114  PRsetsize=121 	 HKprec=  0.1316  PRprec=  0.1157 	 seedID=469
+26 
+CommSize=56  CommID=3348 	 HKfmeas=  0.1769  PRfmeas=  0.2020 	 HKsetsize=91  PRsetsize=43 	 HKprec=  0.1429  PRprec=  0.2326 	 seedID=130
+782 
+CommSize=76  CommID=3354 	 HKfmeas=  0.0352  PRfmeas=  0.0914 	 HKsetsize=946  PRsetsize=99 	 HKprec=  0.0190  PRprec=  0.0808 	 seedID=151
+0 
+CommSize=101  CommID=3416 	 HKfmeas=  0.1737  PRfmeas=  0.0831 	 HKsetsize=233  PRsetsize=597 	 HKprec=  0.1245  PRprec=  0.0486 	 seedID=272
+90 
+CommSize=102  CommID=3467 	 HKfmeas=  0.1745  PRfmeas=  0.1503 	 HKsetsize=368  PRsetsize=244 	 HKprec=  0.1114  PRprec=  0.1066 	 seedID=544
+84 
+CommSize=65  CommID=3470 	 HKfmeas=  0.4400  PRfmeas=  0.2960 	 HKsetsize=35  PRsetsize=185 	 HKprec=  0.6286  PRprec=  0.2000 	 seedID=288
+725 
+CommSize=79  CommID=3480 	 HKfmeas=  0.1060  PRfmeas=  0.1092 	 HKsetsize=223  PRsetsize=214 	 HKprec=  0.0717  PRprec=  0.0748 	 seedID=364
+35 
+CommSize=72  CommID=3492 	 HKfmeas=  0.2457  PRfmeas=  0.2491 	 HKsetsize=221  PRsetsize=217 	 HKprec=  0.1629  PRprec=  0.1659 	 seedID=610
+32 
+CommSize=73  CommID=3502 	 HKfmeas=  0.1092  PRfmeas=  0.1712 	 HKsetsize=275  PRsetsize=149 	 HKprec=  0.0691  PRprec=  0.1275 	 seedID=245
+934 
+CommSize=56  CommID=3574 	 HKfmeas=  0.0730  PRfmeas=  0.0366 	 HKsetsize=492  PRsetsize=1419 	 HKprec=  0.0407  PRprec=  0.0190 	 seedID=290
+88 
+
+...skipping one line
+CommSize=61  CommID=3593 	 HKfmeas=  0.0463  PRfmeas=  0.0299 	 HKsetsize=500  PRsetsize=742 	 HKprec=  0.0260  PRprec=  0.0162 	 seedID=114
+022 
+CommSize=87  CommID=3623 	 HKfmeas=  0.2222  PRfmeas=  0.1471 	 HKsetsize=147  PRsetsize=253 	 HKprec=  0.1769  PRprec=  0.0988 	 seedID=188
+687 
+CommSize=88  CommID=3652 	 HKfmeas=  0.3333  PRfmeas=  0.2478 	 HKsetsize=134  PRsetsize=259 	 HKprec=  0.2761  PRprec=  0.1660 	 seedID=269
+750 
+CommSize=65  CommID=3666 	 HKfmeas=  0.1131  PRfmeas=  0.0829 	 HKsetsize=324  PRsetsize=297 	 HKprec=  0.0679  PRprec=  0.0505 	 seedID=583
+11 
+CommSize=98  CommID=3723 	 HKfmeas=  0.0133  PRfmeas=  0.0309 	 HKsetsize=3519  PRsetsize=1131 	 HKprec=  0.0068  PRprec=  0.0168 	 se
+edID=9738 
+CommSize=63  CommID=3740 	 HKfmeas=  0.0535  PRfmeas=  0.0435 	 HKsetsize=498  PRsetsize=581 	 HKprec=  0.0301  PRprec=  0.0241 	 seedID=271
+38 
+CommSize=112  CommID=3788 	 HKfmeas=  0.0534  PRfmeas=  0.0419 	 HKsetsize=1011  PRsetsize=1321 	 HKprec=  0.0297  PRprec=  0.0227 	 se
+edID=49829 
+CommSize=90  CommID=3794 	 HKfmeas=  0.2658  PRfmeas=  0.2625 	 HKsetsize=68  PRsetsize=70 	 HKprec=  0.3088  PRprec=  0.3000 	 seedID=167
+705 
+CommSize=86  CommID=3845 	 HKfmeas=  0.2057  PRfmeas=  0.2286 	 HKsetsize=89  PRsetsize=89 	 HKprec=  0.2022  PRprec=  0.2247 	 seedID=253
+23 
+CommSize=86  CommID=3877 	 HKfmeas=  0.1818  PRfmeas=  0.1114 	 HKsetsize=123  PRsetsize=291 	 HKprec=  0.1545  PRprec=  0.0722 	 seedID=641
+74 
+CommSize=53  CommID=3880 	 HKfmeas=  0.2791  PRfmeas=  0.2400 	 HKsetsize=33  PRsetsize=47 	 HKprec=  0.3636  PRprec=  0.2553 	 seedID=961
+32 
+CommSize=68  CommID=3942 	 HKfmeas=  0.2931  PRfmeas=  0.1967 	 HKsetsize=48  PRsetsize=115 	 HKprec=  0.3542  PRprec=  0.1565 	 seedID=266
+594 
+CommSize=94  CommID=3955 	 HKfmeas=  0.0847  PRfmeas=  0.1240 	 HKsetsize=449  PRsetsize=164 	 HKprec=  0.0512  PRprec=  0.0976 	 seedID=303
+625 
+CommSize=74  CommID=3980 	 HKfmeas=  0.5877  PRfmeas=  0.5057 	 HKsetsize=137  PRsetsize=187 	 HKprec=  0.4526  PRprec=  0.3529 	 seedID=239
+676 
+CommSize=55  CommID=4017 	 HKfmeas=  0.0544  PRfmeas=  0.0207 	 HKsetsize=460  PRsetsize=1397 	 HKprec=  0.0304  PRprec=  0.0107 	 seedID=822
+2 
+CommSize=81  CommID=4035 	 HKfmeas=  0.3492  PRfmeas=  0.3265 	 HKsetsize=45  PRsetsize=66 	 HKprec=  0.4889  PRprec=  0.3636 	 seedID=674
+61 
+
+...skipping one line
+CommSize=71  CommID=4087 	 HKfmeas=  0.3774  PRfmeas=  0.4043 	 HKsetsize=88  PRsetsize=117 	 HKprec=  0.3409  PRprec=  0.3248 	 seedID=281
+236 
+CommSize=102  CommID=4106 	 HKfmeas=  0.4098  PRfmeas=  0.3810 	 HKsetsize=142  PRsetsize=171 	 HKprec=  0.3521  PRprec=  0.3041 	 seedID=144
+439 
+CommSize=97  CommID=4181 	 HKfmeas=  0.0651  PRfmeas=  0.0550 	 HKsetsize=1009  PRsetsize=1285 	 HKprec=  0.0357  PRprec=  0.0296 	 se
+edID=73408 
+CommSize=79  CommID=4200 	 HKfmeas=  0.1011  PRfmeas=  0.0859 	 HKsetsize=554  PRsetsize=689 	 HKprec=  0.0578  PRprec=  0.0479 	 seedID=101
+074 
+CommSize=54  CommID=4327 	 HKfmeas=  0.3684  PRfmeas=  0.2571 	 HKsetsize=22  PRsetsize=16 	 HKprec=  0.6364  PRprec=  0.5625 	 seedID=257
+659 
+CommSize=76  CommID=4367 	 HKfmeas=  0.4717  PRfmeas=  0.4333 	 HKsetsize=30  PRsetsize=44 	 HKprec=  0.8333  PRprec=  0.5909 	 seedID=422
+22 
+CommSize=82  CommID=4375 	 HKfmeas=  0.2469  PRfmeas=  0.2180 	 HKsetsize=161  PRsetsize=129 	 HKprec=  0.1863  PRprec=  0.1783 	 seedID=277
+320 
+CommSize=93  CommID=4385 	 HKfmeas=  0.2295  PRfmeas=  0.2115 	 HKsetsize=90  PRsetsize=115 	 HKprec=  0.2333  PRprec=  0.1913 	 seedID=470
+03 
+CommSize=58  CommID=4404 	 HKfmeas=  0.2358  PRfmeas=  0.2366 	 HKsetsize=154  PRsetsize=35 	 HKprec=  0.1623  PRprec=  0.3143 	 seedID=264
+39 
+CommSize=56  CommID=4426 	 HKfmeas=  0.0351  PRfmeas=  0.0455 	 HKsetsize=627  PRsetsize=164 	 HKprec=  0.0191  PRprec=  0.0305 	 seedID=329
+ 
+CommSize=71  CommID=4464 	 HKfmeas=  0.2381  PRfmeas=  0.2281 	 HKsetsize=55  PRsetsize=43 	 HKprec=  0.2727  PRprec=  0.3023 	 seedID=313
+24 
+CommSize=67  CommID=4465 	 HKfmeas=  0.3596  PRfmeas=  0.3150 	 HKsetsize=200  PRsetsize=206 	 HKprec=  0.2400  PRprec=  0.2087 	 seedID=100
+089 
+CommSize=86  CommID=4496 	 HKfmeas=  0.4658  PRfmeas=  0.4211 	 HKsetsize=60  PRsetsize=47 	 HKprec=  0.5667  PRprec=  0.5957 	 seedID=179
+702 
+CommSize=97  CommID=4507 	 HKfmeas=  0.3133  PRfmeas=  0.3724 	 HKsetsize=69  PRsetsize=48 	 HKprec=  0.3768  PRprec=  0.5625 	 seedID=371
+14 
+CommSize=59  CommID=4529 	 HKfmeas=  0.2044  PRfmeas=  0.2120 	 HKsetsize=166  PRsetsize=158 	 HKprec=  0.1386  PRprec=  0.1456 	 seedID=282
+29 
+CommSize=78  CommID=4558 	 HKfmeas=  0.1913  PRfmeas=  0.0899 	 HKsetsize=152  PRsetsize=545 	 HKprec=  0.1447  PRprec=  0.0514 	 seedID=473
+68 
+
+...skipping one line
+CommSize=80  CommID=4638 	 HKfmeas=  0.3457  PRfmeas=  0.3546 	 HKsetsize=82  PRsetsize=61 	 HKprec=  0.3415  PRprec=  0.4098 	 seedID=511
+70 
+CommSize=63  CommID=4646 	 HKfmeas=  0.3364  PRfmeas=  0.2833 	 HKsetsize=44  PRsetsize=57 	 HKprec=  0.4091  PRprec=  0.2982 	 seedID=252
+807 
+CommSize=55  CommID=4669 	 HKfmeas=  0.3697  PRfmeas=  0.3548 	 HKsetsize=64  PRsetsize=69 	 HKprec=  0.3438  PRprec=  0.3188 	 seedID=822
+12 
+CommSize=73  CommID=4700 	 HKfmeas=  0.0868  PRfmeas=  0.0482 	 HKsetsize=411  PRsetsize=1420 	 HKprec=  0.0511  PRprec=  0.0254 	 seedID=242
+56 
+CommSize=106  CommID=4725 	 HKfmeas=  0.0314  PRfmeas=  0.0302 	 HKsetsize=1803  PRsetsize=2211 	 HKprec=  0.0166  PRprec=  0.0158 	 se
+edID=28870 
+CommSize=113  CommID=4739 	 HKfmeas=  0.3415  PRfmeas=  0.3164 	 HKsetsize=51  PRsetsize=64 	 HKprec=  0.5490  PRprec=  0.4375 	 seedID=269
+999 
+CommSize=116  CommID=4743 	 HKfmeas=  0.1706  PRfmeas=  0.1351 	 HKsetsize=482  PRsetsize=698 	 HKprec=  0.1058  PRprec=  0.0788 	 seedID=371
+60 
+CommSize=101  CommID=4810 	 HKfmeas=  0.2415  PRfmeas=  0.2314 	 HKsetsize=106  PRsetsize=141 	 HKprec=  0.2358  PRprec=  0.1986 	 seedID=567
+28 
+CommSize=103  CommID=4902 	 HKfmeas=  0.2938  PRfmeas=  0.1939 	 HKsetsize=108  PRsetsize=227 	 HKprec=  0.2870  PRprec=  0.1410 	 seedID=882
+08 
+CommSize=114  CommID=5034 	 HKfmeas=  0.0212  PRfmeas=  0.0176 	 HKsetsize=2627  PRsetsize=1023 	 HKprec=  0.0110  PRprec=  0.0098 	 se
+edID=37941 
+CommSize=82  CommID=5092 	 HKfmeas=  0.4133  PRfmeas=  0.3575 	 HKsetsize=68  PRsetsize=97 	 HKprec=  0.4559  PRprec=  0.3299 	 seedID=896
+86 
+CommSize=104  CommID=5128 	 HKfmeas=  0.3258  PRfmeas=  0.1353 	 HKsetsize=160  PRsetsize=29 	 HKprec=  0.2687  PRprec=  0.3103 	 seedID=168
+105 
+CommSize=64  CommID=5156 	 HKfmeas=  0.2234  PRfmeas=  0.1826 	 HKsetsize=133  PRsetsize=177 	 HKprec=  0.1654  PRprec=  0.1243 	 seedID=196
+46 
+CommSize=72  CommID=5173 	 HKfmeas=  0.3534  PRfmeas=  0.4167 	 HKsetsize=177  PRsetsize=48 	 HKprec=  0.2486  PRprec=  0.5208 	 seedID=936
+25 
+CommSize=66  CommID=5218 	 HKfmeas=  0.0635  PRfmeas=  0.1044 	 HKsetsize=375  PRsetsize=183 	 HKprec=  0.0373  PRprec=  0.0710 	 seedID=201
+795 
+CommSize=91  CommID=5258 	 HKfmeas=  0.2876  PRfmeas=  0.2186 	 HKsetsize=62  PRsetsize=156 	 HKprec=  0.3548  PRprec=  0.1731 	 seedID=258
+631 
+
+...skipping one line
+CommSize=60  CommID=5361 	 HKfmeas=  0.3333  PRfmeas=  0.0863 	 HKsetsize=18  PRsetsize=357 	 HKprec=  0.7222  PRprec=  0.0504 	 seedID=186
+547 
+CommSize=88  CommID=5379 	 HKfmeas=  0.2022  PRfmeas=  0.1732 	 HKsetsize=189  PRsetsize=270 	 HKprec=  0.1481  PRprec=  0.1148 	 seedID=150
+69 
+CommSize=65  CommID=5401 	 HKfmeas=  0.3145  PRfmeas=  0.2241 	 HKsetsize=94  PRsetsize=167 	 HKprec=  0.2660  PRprec=  0.1557 	 seedID=140
+603 
+CommSize=69  CommID=5616 	 HKfmeas=  0.2623  PRfmeas=  0.2708 	 HKsetsize=53  PRsetsize=27 	 HKprec=  0.3019  PRprec=  0.4815 	 seedID=562
+06 
+CommSize=99  CommID=5636 	 HKfmeas=  0.0796  PRfmeas=  0.1761 	 HKsetsize=981  PRsetsize=219 	 HKprec=  0.0438  PRprec=  0.1279 	 seedID=833
+2 
+CommSize=95  CommID=5697 	 HKfmeas=  0.4720  PRfmeas=  0.4772 	 HKsetsize=66  PRsetsize=102 	 HKprec=  0.5758  PRprec=  0.4608 	 seedID=206
+906 
+CommSize=54  CommID=5706 	 HKfmeas=  0.4706  PRfmeas=  0.4000 	 HKsetsize=31  PRsetsize=41 	 HKprec=  0.6452  PRprec=  0.4634 	 seedID=294
+587 
+CommSize=83  CommID=5750 	 HKfmeas=  0.2767  PRfmeas=  0.2894 	 HKsetsize=170  PRsetsize=152 	 HKprec=  0.2059  PRprec=  0.2237 	 seedID=191
+93 
+CommSize=115  CommID=5776 	 HKfmeas=  0.1520  PRfmeas=  0.1265 	 HKsetsize=227  PRsetsize=312 	 HKprec=  0.1145  PRprec=  0.0865 	 seedID=626
+2 
+CommSize=103  CommID=5829 	 HKfmeas=  0.0152  PRfmeas=  0.0124 	 HKsetsize=3963  PRsetsize=706 	 HKprec=  0.0078  PRprec=  0.0071 	 seedID=419
+15 
+CommSize=119  CommID=5867 	 HKfmeas=  0.1640  PRfmeas=  0.0910 	 HKsetsize=198  PRsetsize=1969 	 HKprec=  0.1313  PRprec=  0.0482 	 seedID=122
+526 
+CommSize=67  CommID=5868 	 HKfmeas=  0.5166  PRfmeas=  0.4444 	 HKsetsize=84  PRsetsize=122 	 HKprec=  0.4643  PRprec=  0.3443 	 seedID=156
+791 
+CommSize=118  CommID=6004 	 HKfmeas=  0.5304  PRfmeas=  0.4561 	 HKsetsize=63  PRsetsize=167 	 HKprec=  0.7619  PRprec=  0.3892 	 seedID=313
+498 
+CommSize=99  CommID=6022 	 HKfmeas=  0.3944  PRfmeas=  0.2375 	 HKsetsize=43  PRsetsize=440 	 HKprec=  0.6512  PRprec=  0.1455 	 seedID=253
+296 
+CommSize=61  CommID=6286 	 HKfmeas=  0.0691  PRfmeas=  0.0423 	 HKsetsize=344  PRsetsize=507 	 HKprec=  0.0407  PRprec=  0.0237 	 seedID=151
+871 
+CommSize=91  CommID=6372 	 HKfmeas=  0.4316  PRfmeas=  0.2599 	 HKsetsize=99  PRsetsize=286 	 HKprec=  0.4141  PRprec=  0.1713 	 seedID=224
+311 
+
+...skipping one line
+CommSize=93  CommID=6523 	 HKfmeas=  0.0268  PRfmeas=  0.0379 	 HKsetsize=1327  PRsetsize=645 	 HKprec=  0.0143  PRprec=  0.0217 	 seedID=132
+734 
+CommSize=54  CommID=6655 	 HKfmeas=  0.0666  PRfmeas=  0.0640 	 HKsetsize=637  PRsetsize=1103 	 HKprec=  0.0361  PRprec=  0.0335 	 seedID=362
+64 
+CommSize=77  CommID=6670 	 HKfmeas=  0.1969  PRfmeas=  0.2090 	 HKsetsize=177  PRsetsize=57 	 HKprec=  0.1412  PRprec=  0.2456 	 seedID=129
+586 
+CommSize=90  CommID=6719 	 HKfmeas=  0.3390  PRfmeas=  0.3133 	 HKsetsize=146  PRsetsize=210 	 HKprec=  0.2740  PRprec=  0.2238 	 seedID=194
+904 
+CommSize=79  CommID=6759 	 HKfmeas=  0.0319  PRfmeas=  0.0327 	 HKsetsize=1364  PRsetsize=1266 	 HKprec=  0.0169  PRprec=  0.0174 	 se
+edID=52884 
+CommSize=52  CommID=6987 	 HKfmeas=  0.8627  PRfmeas=  0.8034 	 HKsetsize=50  PRsetsize=65 	 HKprec=  0.8800  PRprec=  0.7231 	 seedID=312
+778 
+CommSize=108  CommID=7143 	 HKfmeas=  0.4211  PRfmeas=  0.3348 	 HKsetsize=82  PRsetsize=113 	 HKprec=  0.4878  PRprec=  0.3274 	 seedID=277
+864 
+CommSize=54  CommID=7203 	 HKfmeas=  0.1760  PRfmeas=  0.0716 	 HKsetsize=71  PRsetsize=309 	 HKprec=  0.1549  PRprec=  0.0421 	 seedID=157
+856 
+CommSize=67  CommID=7295 	 HKfmeas=  0.1611  PRfmeas=  0.1558 	 HKsetsize=231  PRsetsize=164 	 HKprec=  0.1039  PRprec=  0.1098 	 seedID=630
+26 
+CommSize=54  CommID=7477 	 HKfmeas=  0.3299  PRfmeas=  0.2941 	 HKsetsize=43  PRsetsize=48 	 HKprec=  0.3721  PRprec=  0.3125 	 seedID=269
+379 
+CommSize=109  CommID=7515 	 HKfmeas=  0.2944  PRfmeas=  0.2207 	 HKsetsize=251  PRsetsize=326 	 HKprec=  0.2112  PRprec=  0.1472 	 seedID=284
+693 
+CommSize=74  CommID=7573 	 HKfmeas=  0.3750  PRfmeas=  0.2332 	 HKsetsize=38  PRsetsize=149 	 HKprec=  0.5526  PRprec=  0.1745 	 seedID=298
+794 
+CommSize=80  CommID=7708 	 HKfmeas=  0.4604  PRfmeas=  0.4628 	 HKsetsize=59  PRsetsize=41 	 HKprec=  0.5424  PRprec=  0.6829 	 seedID=288
+198 
+CommSize=87  CommID=8151 	 HKfmeas=  0.4940  PRfmeas=  0.4932 	 HKsetsize=79  PRsetsize=59 	 HKprec=  0.5190  PRprec=  0.6102 	 seedID=266
+144 
+CommSize=109  CommID=8181 	 HKfmeas=  0.0456  PRfmeas=  0.0447 	 HKsetsize=1646  PRsetsize=1547 	 HKprec=  0.0243  PRprec=  0.0239 	 se
+edID=1364 
+CommSize=102  CommID=8322 	 HKfmeas=  0.2121  PRfmeas=  0.2069 	 HKsetsize=96  PRsetsize=43 	 HKprec=  0.2188  PRprec=  0.3488 	 seedID=217
+078 
+
+...skipping one line
+CommSize=69  CommID=8762 	 HKfmeas=  0.2857  PRfmeas=  0.2302 	 HKsetsize=43  PRsetsize=70 	 HKprec=  0.3721  PRprec=  0.2286 	 seedID=271
+044 
+CommSize=52  CommID=8879 	 HKfmeas=  0.2178  PRfmeas=  0.2105 	 HKsetsize=49  PRsetsize=43 	 HKprec=  0.2245  PRprec=  0.2326 	 seedID=296
+230 
+CommSize=110  CommID=8952 	 HKfmeas=  0.1240  PRfmeas=  0.0715 	 HKsetsize=390  PRsetsize=813 	 HKprec=  0.0795  PRprec=  0.0406 	 seedID=672
+47 
+CommSize=100  CommID=9549 	 HKfmeas=  0.1010  PRfmeas=  0.0901 	 HKsetsize=316  PRsetsize=344 	 HKprec=  0.0665  PRprec=  0.0581 	 seedID=539
+6 
+CommSize=64  CommID=9550 	 HKfmeas=  0.3171  PRfmeas=  0.2857 	 HKsetsize=18  PRsetsize=34 	 HKprec=  0.7222  PRprec=  0.4118 	 seedID=313
+265 
+CommSize=79  CommID=10142 	 HKfmeas=  0.6667  PRfmeas=  0.6412 	 HKsetsize=59  PRsetsize=52 	 HKprec=  0.7797  PRprec=  0.8077 	 seedID=397
+18 
+CommSize=119  CommID=10365 	 HKfmeas=  0.4561  PRfmeas=  0.4309 	 HKsetsize=52  PRsetsize=62 	 HKprec=  0.7500  PRprec=  0.6290 	 seedID=901
+13 
+CommSize=61  CommID=10366 	 HKfmeas=  0.3956  PRfmeas=  0.2897 	 HKsetsize=30  PRsetsize=84 	 HKprec=  0.6000  PRprec=  0.2500 	 seedID=267
+658 
+CommSize=61  CommID=11616 	 HKfmeas=  0.3238  PRfmeas=  0.2982 	 HKsetsize=44  PRsetsize=53 	 HKprec=  0.3864  PRprec=  0.3208 	 seedID=187
+824 
+CommSize=57  CommID=11617 	 HKfmeas=  0.4884  PRfmeas=  0.4731 	 HKsetsize=29  PRsetsize=36 	 HKprec=  0.7241  PRprec=  0.6111 	 seedID=276
+798 
+CommSize=62  CommID=11669 	 HKfmeas=  0.1882  PRfmeas=  0.1784 	 HKsetsize=108  PRsetsize=151 	 HKprec=  0.1481  PRprec=  0.1258 	 seedID=104
+312 
+CommSize=60  CommID=12482 	 HKfmeas=  0.9580  PRfmeas=  0.8598 	 HKsetsize=59  PRsetsize=47 	 HKprec=  0.9661  PRprec=  0.9787 	 seedID=212
+346 

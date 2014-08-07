@@ -12,7 +12,11 @@
 %   set experimenttype = 1;
 %   use datax = times(id, trialnum, experimenttype)';
 
-load newsmalldata;
+output_directory = '../results/';
+data_directory = '../results/';
+
+filename = 'newsmalldata';
+load([data_directory filename]);
 
 
 numdata = 3+numel(filename);
@@ -30,7 +34,8 @@ for id=1:numgraphs
 end
 
 
-load newsmallppr;
+filename = 'newsmallppr';
+load([data_directory filename]);
 functionid = 2; % for hk, 2 is for ppr
 for id=1:numgraphs
     datax = times(id,:,experimenttype)';
@@ -48,21 +53,24 @@ end
 % do HK first
 functionid = 1;
 
-load friendstertrials;
+filename = 'friendstertrials';
+load([data_directory filename]);
 id = numgraphs+1;
 inputsize(id) = gsize(:,1)+gsize(:,2);
 datax = times(:,experimenttype);
 percdata(id,:,functionid) = prctile(datax,[25 50 75],1);
 
 
-load twitterptrials
+filename = 'twitterptrials';
+load([data_directory filename]);
 id = numgraphs+2;
 inputsize(id) = gsize(:,1)+gsize(:,2);
 datax = times(:,experimenttype);
 percdata(id,:,functionid) = prctile(datax,[25 50 75],1);
 
 
-load ljournaltrials
+filename = 'ljournaltrials';
+load([data_directory filename]);
 id = numgraphs+3;
 inputsize(id) = gsize(:,1)+gsize(:,2);
 datax = times(:,experimenttype);
@@ -72,21 +80,24 @@ percdata(id,:,functionid) = prctile(datax,[25 50 75],1);
 % now do PPR
 functionid = 2;
 
-load pprfriendstertrials;
+filename = 'pprfriendstertrials';
+load([data_directory filename]);
 id = numgraphs+1;
 % inputsize(id) = gsize(:,1)+gsize(:,2);
 datax = times(:,experimenttype);
 percdata(id,:,functionid) = prctile(datax,[25 50 75],1);
 
 
-load pprtwitterptrials
+filename = 'pprtwitterptrials';
+load([data_directory filename]);
 id = numgraphs+2;
 % inputsize(id) = gsize(:,1)+gsize(:,2);
 datax = times(:,experimenttype);
 percdata(id,:,functionid) = prctile(datax,[25 50 75],1);
 
 
-load pprljournaltrials
+filename = 'pprljournaltrials';
+load([data_directory filename]);
 id = numgraphs+3;
 % inputsize(id) = gsize(:,1)+gsize(:,2);
 datax = times(:,experimenttype);
@@ -96,4 +107,4 @@ percdata(id,:,functionid) = prctile(datax,[25 50 75],1);
 
 % HAVE ALL DATA
 
-save(['/scratch2/dgleich/kyle/results/' 'runtimes' '.mat'], 'newindexing','percdata', 'inputsize','-v7.3');
+save([output_directory 'runtimes' '.mat'], 'newindexing','percdata', 'inputsize','-v7.3');
