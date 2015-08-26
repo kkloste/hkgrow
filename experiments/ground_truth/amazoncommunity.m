@@ -1,5 +1,5 @@
 % Compare the recall of hk and ppr on ground-truth communities in amazon
-
+% nohup /p/matlab-7.14/bin/matlab -nodisplay -nodesktop -nojvm -nosplash -r amazoncommunity > amazoncomm.txt &
 filename = 'amazon';
 
 output_directory = '../../results/';
