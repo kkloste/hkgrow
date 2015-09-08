@@ -9,7 +9,7 @@ hkgrow: heat-kernel based local clustering
 ### Kyle Kloster
 ### David F. Gleich
 
-This code is for our paper [Heat Kernel Based Community Detection](http://arxiv.org/abs/1403.3148)
+These codes is for our paper [Heat Kernel Based Community Detection](http://arxiv.org/abs/1403.3148)
 
 _These are research codes and may not work for you._
 
