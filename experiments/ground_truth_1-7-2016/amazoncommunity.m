@@ -2,10 +2,11 @@
 
 clear; clc;
 datafilename = 'amazon';
+load_directory = '~/lemon/data/';
 
-load(['~/Desktop/data/SNAP/' datafilename '-comm.mat']);
+load([load_directory datafilename '-comm.mat']);
 fprintf('done loading comm info\n');
-load(['~/Desktop/data/SNAP/' datafilename '-adj.mat']);
+load([load_directory datafilename '-adj.mat']);
 fprintf(['done loading ' datafilename ' \n']);
 
 output_directory = './results/';

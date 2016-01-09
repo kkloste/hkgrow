@@ -1,18 +1,21 @@
 % Compare the recall of hk and ppr on ground-truth communities in livejournal
 
-filename = 'liveJournal';
+clear; clc;
+datafilename = 'lj';
+load_directory = '~/lemon/data/';
 
-output_directory = '../../results/';
-data_directory = '../../data/';
+load([load_directory datafilename '-comm.mat']);
+fprintf('done loading comm info\n');
+load([load_directory datafilename '-adj.mat']);
+fprintf(['done loading ' datafilename ' \n']);
 
-load([data_directory filename]);
+output_directory = './results/';
 
+addpath('../..'); % for hkgrow1
 addpath('../../ppr');
-addpath('../..');
-addpath('..');
 n = size(A,1);
 C(n,end) = 0;
-Ctop(n,end) = 0;
+%Ctop(n,end) = 0;
 
 %%
 
@@ -28,47 +31,57 @@ comm1 = min(find(commsize>10));
 
 % check every 10th community after the first one
 % that has size > 10
-testcomms = zeros(totalcommunities,1);
-for i=1:totalcommunities
-testcomms(i) = comm1 + 10*(i-1);
-end
+% testcomms = zeros(totalcommunities,1);
+% for i=1:totalcommunities
+% testcomms(i) = comm1 + 10*(i-1);
+% end
+r = find(commsize> 10 );
+testcomms = randsample(r, totalcommunities);
+
 
 for numcom=1:totalcommunities
-comm = testcomms(numcom);
-verts = find(C(:,comm));
+    tic;
+    comm = testcomms(numcom);
+    verts = find(C(:,comm));
 
-deg = numel(verts);
-recalls = zeros(deg,2); % hk = 1, ppr = 2
-precisions = zeros(deg,2);
-fmeas = zeros(deg,2);
-conds = zeros(deg,2);
+    deg = numel(verts);
+    recalls = zeros(deg,2); % hk = 1, ppr = 2
+    precisions = zeros(deg,2);
+    fmeas = zeros(deg,2);
+    conds = zeros(deg,2);
 
-for trial = 1:deg
-[bset,conds(trial,1),cut,vol,~,~] = hkgrow1(A,verts(trial),'t',5);
-recalls(trial,1) = numel(intersect(verts,bset))/numel(verts);
-precisions(trial,1) = numel(intersect(verts,bset))/numel(bset);
-functionID = 1;
-fmeas(trial,functionID) = 2*recalls(trial,functionID)*precisions(trial,functionID)/(recalls(trial,functionID)+precisions(trial,functionID));
-if fmeas(trial,functionID) > bestfmeas(numcom,functionID),
-bestfmeas(numcom,functionID) = fmeas(trial,functionID);
-bestrecsize(numcom,functionID) = numel(bset);
-condofbestfmeas(numcom,functionID) = conds(trial,functionID);
-end
-[bset,conds(trial,2),cut,vol] = pprgrow(A,verts(trial));
-recalls(trial,2) = numel(intersect(verts,bset))/numel(verts);
-precisions(trial,2) = numel(intersect(verts,bset))/numel(bset);
-functionID = 2;
-fmeas(trial,functionID) = 2*recalls(trial,functionID)*precisions(trial,functionID)/(recalls(trial,functionID)+precisions(trial,functionID));
-if fmeas(trial,functionID) > bestfmeas(numcom,functionID),
-bestfmeas(numcom,functionID) = fmeas(trial,functionID);
-bestrecsize(numcom,functionID) = numel(bset);
-condofbestfmeas(numcom,functionID) = conds(trial,functionID);
-end
-end
-fprintf('best hk = %8.4f  setsize=%i cond=%6.4f \t best ppr = %8.4f  setsize =%i cond=%6.4f \n',bestfmeas(numcom,1),bestrecsize(numcom,1), condofbestfmeas(numcom,1), bestfmeas(numcom,2), bestrecsize(numcom,2), condofbestfmeas(numcom,2));
+    fprintf('trial = %i / %i, deg=%i, ', numcom, totalcommunities, deg);
+    
+    
+    for trial = 1:deg
+        [bset,conds(trial,1),cut,vol,~,~] = hkgrow1(A,verts(trial),'t',5);
+        recalls(trial,1) = numel(intersect(verts,bset))/numel(verts);
+        precisions(trial,1) = numel(intersect(verts,bset))/numel(bset);
+        functionID = 1;
+        fmeas(trial,functionID) = 2*recalls(trial,functionID)*precisions(trial,functionID)/(recalls(trial,functionID)+precisions(trial,functionID));
+        if fmeas(trial,functionID) > bestfmeas(numcom,functionID),
+            bestfmeas(numcom,functionID) = fmeas(trial,functionID);
+            bestrecsize(numcom,functionID) = numel(bset);
+            condofbestfmeas(numcom,functionID) = conds(trial,functionID);
+        end
+        [bset,conds(trial,2),cut,vol] = pprgrow(A,verts(trial));
+        recalls(trial,2) = numel(intersect(verts,bset))/numel(verts);
+        precisions(trial,2) = numel(intersect(verts,bset))/numel(bset);
+        functionID = 2;
+        fmeas(trial,functionID) = 2*recalls(trial,functionID)*precisions(trial,functionID)/(recalls(trial,functionID)+precisions(trial,functionID));
+        if fmeas(trial,functionID) > bestfmeas(numcom,functionID),
+            bestfmeas(numcom,functionID) = fmeas(trial,functionID);
+            bestrecsize(numcom,functionID) = numel(bset);
+            condofbestfmeas(numcom,functionID) = conds(trial,functionID);
+        end
+    end
+    fprintf('  best hk = %8.4f  setsize=%i cond=%6.4f \t best ppr = %8.4f  setsize =%i cond=%6.4f \n', ...
+        bestfmeas(numcom,1),bestrecsize(numcom,1), condofbestfmeas(numcom,1), bestfmeas(numcom,2), bestrecsize(numcom,2), condofbestfmeas(numcom,2));
+    timetrial = toc;
+    fprintf(' time = %f\n', timetrial);
 end
 fprintf('hk: mean fmeas=%6.4f \t mean setsize=%6.4f \t mean cond=%6.4f \t ppr: mean fmeas=%6.4f \t mean setsize=%6.4f \t mean cond=%6.4f \n', ...
 		sum(bestfmeas(:,1))/totalcommunities, sum(bestrecsize(:,1))/totalcommunities, sum(condofbestfmeas(:,1))/totalcommunities, ...
 		sum(bestfmeas(:,2))/totalcommunities, sum(bestrecsize(:,2))/totalcommunities, sum(condofbestfmeas(:,2))/totalcommunities);
 
-save([output_directory 'ljournalcommunity' '.mat'],'fmeas','conds','recalls','precisions', 'bestrecsize', 'condofbestfmeas','bestrecsize','-v7.3');
+save([output_directory datafilename 'community' '.mat'],'fmeas','conds','recalls','precisions', 'bestrecsize', 'condofbestfmeas','bestrecsize','-v7.3');
